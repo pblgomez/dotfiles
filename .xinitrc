@@ -8,4 +8,3 @@ cp $(find $(pwd)/Pictures/Wallpapers -type f | sort -R |head -n1) ~/.cache/bg &&
 
 # desktop
 exec i3
-
