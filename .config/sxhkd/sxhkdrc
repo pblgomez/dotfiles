@@ -1,0 +1,21 @@
+I# vim: set ft=sxhkdrc:
+#
+# bspwm hotkeys
+#
+
+super + o ; {h,f,t}
+	{htop,firefox,termite}
+
+
+
+
+############################################################
+# Apps
+############################################################
+
+super + d
+	dmenu_run
+super + shift +d
+	j4-dmenu-desktop
+ctrl + alt + f
+	firefox

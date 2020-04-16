@@ -129,64 +129,64 @@ bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 
 # Apply different settigns for different terminals
-case $(basename "$(cat "/proc/$PPID/comm")") in
-  login)
-    	RPROMPT="%{$fg[red]%} %(?..[%?])" 
-    	alias x='startx ~/.xinitrc'      # Type name of desired desktop after x, xinitrc is configured for it
-    ;;
-#  'tmux: server')
-#        RPROMPT='$(git_prompt_string)'
-#		## Base16 Shell color themes.
-#		#possible themes: 3024, apathy, ashes, atelierdune, atelierforest, atelierhearth,
-#		#atelierseaside, bespin, brewer, chalk, codeschool, colors, default, eighties, 
-#		#embers, flat, google, grayscale, greenscreen, harmonic16, isotope, londontube,
-#		#marrakesh, mocha, monokai, ocean, paraiso, pop (dark only), railscasts, shapesifter,
-#		#solarized, summerfruit, tomorrow, twilight
-#		#theme="eighties"
-#		#Possible variants: dark and light
-#		#shade="dark"
-#		#BASE16_SHELL="/usr/share/zsh/scripts/base16-shell/base16-$theme.$shade.sh"
-#		#[[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
-#		# Use autosuggestion
-#		source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-#		ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
-#  		ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=8'
+# case $(basename "$(cat "/proc/$PPID/comm")") in
+#   login)
+#     	RPROMPT="%{$fg[red]%} %(?..[%?])" 
+#     	alias x='startx ~/.xinitrc'      # Type name of desired desktop after x, xinitrc is configured for it
 #     ;;
-  *)
-        RPROMPT='$(git_prompt_string)'
-		# Use autosuggestion
-		source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-		ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
-  		ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=8'
-    ;;
-esac
+# #  'tmux: server')
+# #        RPROMPT='$(git_prompt_string)'
+# #		## Base16 Shell color themes.
+# #		#possible themes: 3024, apathy, ashes, atelierdune, atelierforest, atelierhearth,
+# #		#atelierseaside, bespin, brewer, chalk, codeschool, colors, default, eighties, 
+# #		#embers, flat, google, grayscale, greenscreen, harmonic16, isotope, londontube,
+# #		#marrakesh, mocha, monokai, ocean, paraiso, pop (dark only), railscasts, shapesifter,
+# #		#solarized, summerfruit, tomorrow, twilight
+# #		#theme="eighties"
+# #		#Possible variants: dark and light
+# #		#shade="dark"
+# #		#BASE16_SHELL="/usr/share/zsh/scripts/base16-shell/base16-$theme.$shade.sh"
+# #		#[[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
+# #		# Use autosuggestion
+# #		source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+# #		ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
+# #  		ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=8'
+# #     ;;
+#   *)
+#         RPROMPT='$(git_prompt_string)'
+# 		# Use autosuggestion
+# 		source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+# 		ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
+#   		ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=8'
+#     ;;
+# esac
 
 
-function preexec() {
-  timer=$(($(date +%s%0N)/1000000))
-	seconds=0
-	minutes=0
-}
-
-function precmd() {
-  if [ $timer ]; then
-    now=$(($(date +%s%0N)/1000000))
-    elapsed=$(($now-$timer))
-    while [ $elapsed -ge 1000 ] && [ $elapsed -ge 0 ]; do
-		  elapsed=$(( $elapsed - 1000 ))
- 			seconds=$((seconds+1))
-		done
-    while [ $seconds -ge 60 ] && [ $seconds -ge 0 ]; do
-		  elapsed=$(( $seconds - 60 ))
- 			minutes=$((minutes+1))
-		done
-		if [ $minutes -gt 0 ]; then
-			export RPROMPT="%F{cyan} ${minutes}m ${seconds}s ${elapsed}ms %{$reset_color%}$(git_prompt_string)"
-		elif [ $seconds -gt 0 ]; then
-			export RPROMPT="%F{cyan} ${seconds}s ${elapsed}ms %{$reset_color%}$(git_prompt_string)"
-		else
-			export RPROMPT="%F{cyan} ${elapsed}ms %{$reset_color%}$(git_prompt_string)"
-		fi
-    unset timer
-  fi
-}
+# function preexec() {
+#   timer=$(($(date +%s%0N)/1000000))
+# 	seconds=0
+# 	minutes=0
+# }
+# 
+# function precmd() {
+#   if [ $timer ]; then
+#     now=$(($(date +%s%0N)/1000000))
+#     elapsed=$(($now-$timer))
+#     while [ $elapsed -ge 1000 ] && [ $elapsed -ge 0 ]; do
+# 		  elapsed=$(( $elapsed - 1000 ))
+#  			seconds=$((seconds+1))
+# 		done
+#     while [ $seconds -ge 60 ] && [ $seconds -ge 0 ]; do
+# 		  elapsed=$(( $seconds - 60 ))
+#  			minutes=$((minutes+1))
+# 		done
+# 		if [ $minutes -gt 0 ]; then
+# 			export RPROMPT="%F{cyan} ${minutes}m ${seconds}s ${elapsed}ms %{$reset_color%}$(git_prompt_string)"
+# 		elif [ $seconds -gt 0 ]; then
+# 			export RPROMPT="%F{cyan} ${seconds}s ${elapsed}ms %{$reset_color%}$(git_prompt_string)"
+# 		else
+# 			export RPROMPT="%F{cyan} ${elapsed}ms %{$reset_color%}$(git_prompt_string)"
+# 		fi
+#     unset timer
+#   fi
+# }
