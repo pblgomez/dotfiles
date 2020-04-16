@@ -11,6 +11,9 @@ export READER="zathura"
 # export LESSHISTFILE="-"
 # export WGETRC="$HOME/.config/wget/wgetrc"
 # export INPUTRC="$HOME/.config/inputrc"
+
+# Para que aparezcan los acentos
+export LC_CTYPE="en_US.UTF-8"
 export XDG_CONFIG_HOME="$HOME/.config"
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 
