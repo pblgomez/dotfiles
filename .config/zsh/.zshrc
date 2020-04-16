@@ -1,3 +1,14 @@
+[ /dev/pts/0 = /dev/tty1 ] && ! pgrep -x Xorg >/dev/null && exec startx
+# Default programs:
+export EDITOR="nvim"
+# export TERMINAL="st"
+export BROWSER="firefox"
+export READER="zathura"
+# Para que aparezcan los acentos
+export LC_CTYPE="en_US.UTF-8"
+
+
+
 ## Options section
 setopt correct                                                  # Auto correct mistakes
 setopt extendedglob                                             # Extended globbing. Allows using regular expressions with *
