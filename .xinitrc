@@ -4,14 +4,21 @@
 export TERMINAL="alacritty"
 
 # wallpaper
-cp $(find $(pwd)/Pictures/Wallpapers -type f | sort -R |head -n1) ~/.cache/bg && convert ~/.cache/bg ~/.cache/bg.png && xwallpaper --zoom ~/.cache/bg &
+if [ -f ~/.cache/bg ]; then
+  xwallpaper --zoom ~/.cache/bg &
+else
+  cp $(find $(pwd)/Pictures/Wallpapers -type f | sort -R |head -n1) ~/.cache/bg && convert -resize 1920 ~/.cache/bg ~/.cache/bg.png && xwallpaper --zoom ~/.cache/bg &
+fi
 
 # keyboard layout
 setxkbmap us,es -option grp:rctrl_rshift_toggle
 
 
 # apps at startup
+udiskie &
 unclutter &
+~/.local/bin/touchpad-enable.sh &
+picom &
 
 # xmodmap ~/.config/Xmodmap
 sxhkd &

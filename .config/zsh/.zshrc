@@ -3,10 +3,13 @@
 export EDITOR="nvim"
 export BROWSER="firefox"
 export READER="zathura"
+
 # Para que aparezcan los acentos
 export LC_CTYPE="en_US.UTF-8"
 
 
+# PATH
+export PATH=$PATH:~/.local/bin
 
 ## Options section
 setopt correct                                                  # Auto correct mistakes
