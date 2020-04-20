@@ -23,3 +23,6 @@ c.url.searchengines = {'DEFAULT': 'https://duckduckgo.com/?q={}&k7=282a36&k8=f8f
     "osm": "https://www.openstreetmap.org/search?query={}",
 }
 
+
+config.bind("pb","spawn --userscript qute-bitwarden")
+config.bind("pt","spawn --userscript bitwarden-totp")

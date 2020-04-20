@@ -7,6 +7,8 @@ export READER="zathura"
 # Para que aparezcan los acentos
 export LC_CTYPE="en_US.UTF-8"
 
+# Bitwarden
+export BW_SESSION=$(cat ~/.config/Bitwarden\ CLI/.env)
 
 # PATH
 export PATH=$PATH:~/.local/bin

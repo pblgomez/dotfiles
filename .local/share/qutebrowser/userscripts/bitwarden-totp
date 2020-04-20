@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+set -e
+
+
+export BW_SESSION=$(cat ~/.config/Bitwarden\ CLI/.env)
+echo $BW_SESSION
+if [ -z $QUTE_URL ]; then
+  read -p "Enter url: " QUTE_URL
+fi
+echo $QUTE_URL
+domain=$(echo $QUTE_URL | awk -F'/' '{print $3}')
+echo $domain
+totp=$(bw get totp $domain)
+echo $totp
+notify-send "$totp"
+echo $totp | xclip -selection clipboard
