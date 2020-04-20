@@ -15,6 +15,7 @@ setxkbmap us,es -option grp:rctrl_rshift_toggle
 
 
 # apps at startup
+dunst &
 udiskie &
 unclutter &
 ~/.local/bin/touchpad-enable.sh &
