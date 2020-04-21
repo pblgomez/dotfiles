@@ -5,6 +5,10 @@
 # this file and re-run i3-config-wizard(1).
 #
 
+# For nvidia-only
+# exec --no-startup-id /usr/bin/prime-offload
+
+
 # i3 config file (v4)
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
@@ -263,12 +267,12 @@ workspace 10 output $firstMonitor
 bindsym $mod+X mode "$mode_system"
 bindsym control+mod1+Delete mode "$mode_system"
 
-set $mode_system System (k) lock, (l) logout, (u) suspend, (h) hibernate, (r) reboot, (s) shutdown
+set $mode_system (k) lock, (l) logout, (u) suspend, (r) reboot, (s) shutdown
 mode "$mode_system" {
-    bindsym k exec --no-startup-id i3lock -i ~/.cache/bg.png      lock, mode "default"
+    bindsym k exec --no-startup-id i3lock -i ~/.cache/bg.png lock, mode "default"
     bindsym l exec --no-startup-id exec i3-msg exit, mode "default"
-    bindsym u exec --no-startup-id ~/.config/i3/scripts/i3exit.sh suspend, mode "default"
-    bindsym h exec --no-startup-id ~/.config/i3/scripts/i3exit.sh hibernate, mode "default"
+    bindsym u exec --no-startup-id i3lock -i ~/.cache/bg.png lock && systemctl suspend, mode "default"
+#   bindsym h exec --no-startup-id ~/.config/i3/scripts/i3exit.sh hibernate, mode "default"
     bindsym r exec --no-startup-id systemctl reboot, mode "default"
     bindsym s exec --no-startup-id systemctl poweroff -i, mode "default"
 
@@ -276,3 +280,45 @@ mode "$mode_system" {
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
+
+#####################################################################################################################
+#################                          assign applications to workspaces                       #################
+#####################################################################################################################
+
+# Assign application to start on a specific workspace
+# you can find the class with the program xprop
+
+# Workspace 1 non related
+
+# Workspace 2 browser related
+assign [class="Firefox|firefox|Vivaldi-stable|Vivaldi-snapshot|Opera|qutebrowser"]                       → 2
+for_window [class="Firefox|Chromium|qutebrowser"] focus
+
+# Workspace 3 text editor related
+assign [class="Atom|Code|VSCodium"]                                                  → 3
+
+# Workspace 4 Gimp
+#assign [class="Gimp"]                                                               → 4
+
+# Workspace 5 Images and meld
+#assign [class="ristretto|Ristretto|shotwell|Shotwell|Xviewer|Nitrogen"]             → 5
+#assign [class="feh|gthumb|Gthumb|eog|Eog|Pinta|pixeluvo|Pixeluvo"]                  → 5
+#assign [class="Meld"]                                                               → 5
+
+# Workspace 6 all video related software
+assign [class="Vlc|vlc|Stremio"]          → 6
+
+# Workspace 7 virtual machines and settings
+assign [class="Vmplayer|VirtualBox"]						    → 7
+
+# Workspace 8 file managers
+#assign [class="Nemo|Thunar|Caja|nautilus|Nautilus"]                                 → 8
+
+# Workspace 9 messaging clients related
+assign [class="TelegramDesktop|Whatsie|whats-app-nativ*"]                                   → 9
+
+# Workspace 10 Music related
+assign [class="Spotify|spotify"]                                             → 10
+#fix for spotify not moving to workspace 10
+for_window [class="Spotify"] move to workspace 10
+

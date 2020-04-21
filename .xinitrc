@@ -20,8 +20,11 @@ udiskie &
 unclutter &
 ~/.local/bin/touchpad-enable.sh &
 picom &
+redshift &
 
 # xmodmap ~/.config/Xmodmap
 sxhkd &
 # desktop
 exec i3
+# For nvidia only 
+# exec /usr/bin/prime-offload

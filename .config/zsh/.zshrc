@@ -4,6 +4,8 @@ export EDITOR="nvim"
 export BROWSER="firefox"
 export READER="zathura"
 
+export TERM=xterm-256color
+
 # Para que aparezcan los acentos
 export LC_CTYPE="en_US.UTF-8"
 
