@@ -13,12 +13,26 @@ super + o ; {h,f,t}
 # Apps
 ############################################################
 
-super + d
+super + shift +d
 # dmenu_run -nf '#F8F8F2' -nb '#282A36' -sb '#6272A4' -sf '#F8F8F2' -fn 'monospace-10' -p 'dmenu%'
 	dmenu_run -nf '#F8F8F2' -nb '#282A36' -sb '#6272A4' -sf '#F8F8F2' -fn 'monospace-10'
 
-super + shift +d
+super + d
 	j4-dmenu-desktop --dmenu="dmenu -nf '#F8F8F2' -nb '#282A36' -sb '#6272A4' -sf '#F8F8F2' -fn 'monospace-10'"
 	
 super + b ; {f,q}
 	{firefox,qutebrowser}
+
+# Brightness
+XF86MonBrightnessUp
+  light -A 10 && dunstify `light -G | cut -f1 -d '.'` -i "/usr/share/icons/Adwaita/16x16/status/display-brightness-symbolic.symbolic.png" -r 1
+XF86MonBrightnessDown
+  light -U 10 && dunstify `light -G | cut -f1 -d '.'` -i "/usr/share/icons/Adwaita/16x16/status/display-brightness-symbolic.symbolic.png" -r 1
+
+# Volumen
+XF86AudioRaiseVolume
+  pamixer -u --increase 5 && dunstify -i "/usr/share/icons/Adwaita/16x16/status/audio-volume-high-symbolic.symbolic.png" -r 2 `pamixer --get-volume-human`
+XF86AudioLowerVolume
+  pamixer --decrease 5 && dunstify -i "/usr/share/icons/Adwaita/16x16/status/audio-volume-high-symbolic.symbolic.png" -r 2 `pamixer --get-volume-human`
+XF86AudioMute
+  pamixer -t && dunstify -i "/usr/share/icons/Adwaita/16x16/status/audio-volume-high-symbolic.symbolic.png" -r 2 `pamixer --get-volume-human` 
