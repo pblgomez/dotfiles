@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+set -e
+
+pacmd set-card-profile 0 output:hdmi-stereo-extra1+input:analog-stereo
+notify-send "Docked"

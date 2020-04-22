@@ -1,8 +1,5 @@
 #!/bin/sh
 
-# Exports
-export TERMINAL="alacritty"
-
 # wallpaper
 if [ -f ~/.cache/bg ]; then
   xwallpaper --zoom ~/.cache/bg &
@@ -21,6 +18,7 @@ unclutter &
 ~/.local/bin/touchpad-enable.sh &
 picom &
 redshift &
+autorandr -c &
 
 # xmodmap ~/.config/Xmodmap
 sxhkd &
