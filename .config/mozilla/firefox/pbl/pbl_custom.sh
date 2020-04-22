@@ -22,6 +22,11 @@ preferencias=( \
   'user_pref("browser.startup.page", 3);' \
   # Theme
   'user_pref("extensions.activeThemeID", "firefox-compact-dark@mozilla.org");' \
+  # Old url bar
+  'user_pref("browser.urlbar.update1", false);' \
+  'user_pref("extensions.htmlaboutaddons.recommendations.enabled", false);' \
+  'user_pref("services.sync.prefs.sync.app.shield.optoutstudies.enabled", false);' \
+  'user_pref("app.shield.optoutstudies.enabled", false);' \
 )
 
 for str in "${preferencias[@]}"; do
