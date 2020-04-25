@@ -11,7 +11,7 @@
 if [ -f ~/.cache/bg ]; then
   xwallpaper --zoom ~/.cache/bg &
 else
-  cp $(find $(pwd)/Pictures/Wallpapers -type f | sort -R |head -n1) ~/.cache/bg && convert -resize 1920 ~/.cache/bg ~/.cache/bg.png && xwallpaper --zoom ~/.cache/bg &
+  cp $(find $(pwd)/Pictures/Wallpapers -type f | sort -R |head -n1) ~/.cache/bg && convert -resize 1920 -blur 30x30 ~/.cache/bg ~/.cache/bg.png && xwallpaper --zoom ~/.cache/bg &
 fi
 
 # keyboard layout

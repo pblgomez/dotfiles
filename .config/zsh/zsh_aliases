@@ -8,6 +8,8 @@ alias gitu='git add . && git commit && git push'
 
 alias pacman='sudo pacman --color auto'
 
+alias cp='cp -i'
+
 alias l=ls
 alias l.='ls -A | egrep '\''^\.'\'
 alias la='ls -a'
