@@ -24,9 +24,12 @@ order += "load"
 order += "memory"
 order += "tztime local"
 
+ipv6 {
+  format_down = " "
+}
 wireless _first_ {
-        format_up = "%quality %essid %ip"
-        format_down = "W: down"
+      format_up = "%quality %essid %ip"
+      format_down = "W: down"
 }
 
 ethernet _first_ {

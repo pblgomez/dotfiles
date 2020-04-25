@@ -350,11 +350,3 @@ browser[type=content] > html {
 .tabbrowser-tab .tab-close-button {display:none;}
 
 @namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"); /* only needed once */
-
-/* Hide Scrollbar */
-:-moz-any(#content,#appcontent) browser{
- margin-right:-14px!important;
- overflow-y:scroll;
- margin-bottom:-14px!important;
- overflow-x:scroll;
-}
