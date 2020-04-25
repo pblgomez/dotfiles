@@ -15,6 +15,8 @@ alias ll='ls -la'
 alias ls='ls --color=auto'
 alias lsa='ls -lah'
 
+alias df='df -hT -x tmpfs -x devtmpfs'
+
 alias mirror='sudo reflector -f 30 -l 30 --number 10 --verbose --save /etc/pacman.d/mirrorlist'
 alias mirrora='sudo reflector --latest 50 --number 20 --sort age --save /etc/pacman.d/mirrorlist'
 alias mirrord='sudo reflector --latest 50 --number 20 --sort delay --save /etc/pacman.d/mirrorlist'

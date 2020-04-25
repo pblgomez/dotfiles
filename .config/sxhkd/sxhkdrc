@@ -13,11 +13,10 @@ super + o ; {h,f,t}
 # Apps
 ############################################################
 
-super + shift +d
-# dmenu_run -nf '#F8F8F2' -nb '#282A36' -sb '#6272A4' -sf '#F8F8F2' -fn 'monospace-10' -p 'dmenu%'
+super + d
 	dmenu_run -nf '#F8F8F2' -nb '#282A36' -sb '#6272A4' -sf '#F8F8F2' -fn 'monospace-10'
 
-super + d
+super + shift +d
 	j4-dmenu-desktop --dmenu="dmenu -nf '#F8F8F2' -nb '#282A36' -sb '#6272A4' -sf '#F8F8F2' -fn 'monospace-10'"
 	
 super + b ; {f,q}

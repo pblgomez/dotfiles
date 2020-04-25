@@ -292,10 +292,11 @@ mode "$mode_system" {
 
 # Workspace 2 browser related
 assign [class="Firefox|firefox|Vivaldi-stable|Vivaldi-snapshot|Opera|qutebrowser"]                       → 2
-for_window [class="Firefox|Chromium|qutebrowser"] focus
+for_window [class="firefox|Chromium|qutebrowser"] focus
 
 # Workspace 3 text editor related
 assign [class="Atom|Code|VSCodium"]                                                  → 3
+for_window [class="VSCodium"] focus
 
 # Workspace 4 Gimp
 #assign [class="Gimp"]                                                               → 4

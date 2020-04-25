@@ -1,5 +1,12 @@
 #!/bin/sh
 
+
+
+#xrandr --setprovideroutputsource modesetting NVIDIA-0
+#xrandr --auto
+#exec /usr/bin/prime-offload
+
+
 # wallpaper
 if [ -f ~/.cache/bg ]; then
   xwallpaper --zoom ~/.cache/bg &
@@ -8,8 +15,7 @@ else
 fi
 
 # keyboard layout
-setxkbmap us,es -option grp:rctrl_rshift_toggle
-
+setxkbmap us,es alt-intl-unicode, -option grp:rctrl_rshift_toggle
 
 # apps at startup
 dunst &
@@ -19,10 +25,9 @@ unclutter &
 picom &
 redshift &
 autorandr -c &
+# optimus-manager-qt
 
 # xmodmap ~/.config/Xmodmap
 sxhkd &
 # desktop
 exec i3
-# For nvidia only 
-# exec /usr/bin/prime-offload

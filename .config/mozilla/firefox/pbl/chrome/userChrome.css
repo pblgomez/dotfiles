@@ -335,10 +335,13 @@ browser[type=content] > html {
 
 /* Hide Nav buttons */
 #back-button {display:none}
-#forward-button {display:none}
-#reload-button {display:none}
-#home-button {display: none !important;}
-#back-button {display: none !important;}
+#reload-button,
+  #home-button,
+  #back-button,
+  #forward-button,
+  #library-button,
+  #pageActionButton,
+  #tracking-protection-icon-container {display: none !important;}
 
 /* Hide new tab button */
 #tabs-newtab-button.toolbarbutton-1 .toolbarbutton-icon {display:none;}
@@ -346,3 +349,12 @@ browser[type=content] > html {
 /* Hide close tab button */
 .tabbrowser-tab .tab-close-button {display:none;}
 
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"); /* only needed once */
+
+/* Hide Scrollbar */
+:-moz-any(#content,#appcontent) browser{
+ margin-right:-14px!important;
+ overflow-y:scroll;
+ margin-bottom:-14px!important;
+ overflow-x:scroll;
+}
