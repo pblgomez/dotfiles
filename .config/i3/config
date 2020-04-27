@@ -33,7 +33,8 @@ font pango:DejaVu Sans Mono 12
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock -i ~/.cache/bg.png --nofork
+# exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock -i ~/.cache/bg.png --nofork
+exec --no-startup-id xss-lock --transfer-sleep-lock -- ~/.local/bin/locker.sh
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
@@ -269,7 +270,7 @@ bindsym control+mod1+Delete mode "$mode_system"
 
 set $mode_system (k) lock, (l) logout, (u) suspend, (r) reboot, (s) shutdown
 mode "$mode_system" {
-    bindsym k exec --no-startup-id i3lock -i ~/.cache/bg.png lock, mode "default"
+    bindsym k exec --no-startup-id ~/.local/bin/locker.sh, mode "default"
     bindsym l exec --no-startup-id exec i3-msg exit, mode "default"
     bindsym u exec --no-startup-id i3lock -i ~/.cache/bg.png lock && systemctl suspend, mode "default"
 #   bindsym h exec --no-startup-id ~/.config/i3/scripts/i3exit.sh hibernate, mode "default"
@@ -316,7 +317,8 @@ assign [class="Vmplayer|VirtualBox"]						    → 7
 #assign [class="Nemo|Thunar|Caja|nautilus|Nautilus"]                                 → 8
 
 # Workspace 9 messaging clients related
-assign [class="TelegramDesktop|Whatsie|whats-app-nativ*"]                                   → 9
+assign [class="TelegramDesktop|Whatsie|whatsapp-nativefier-*"]                                   → 9
+for_window [class="TelegramDesktop|whatsapp-nativefier-*"] focus
 
 # Workspace 10 Music related
 assign [class="Spotify|spotify"]                                             → 10
