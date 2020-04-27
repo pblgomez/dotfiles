@@ -1,11 +1,8 @@
 #!/bin/sh
 
-
-
 #xrandr --setprovideroutputsource modesetting NVIDIA-0
 #xrandr --auto
 #exec /usr/bin/prime-offload
-
 
 # wallpaper
 if [ -f ~/.cache/bg ]; then
@@ -29,5 +26,13 @@ autorandr -c &
 
 # xmodmap ~/.config/Xmodmap
 sxhkd &
+# Custom keyboard map
+if [ -f $HOME/.config/pbl.xkb ]; then
+  xkbcomp $HOME/.config/pbl.xkb $DISPLAY
+else
+  setxkbmap us,es alt-intl-unicode, -option grp:rctrl_rshift_toggle
+fi
+
 # desktop
 exec i3
+
