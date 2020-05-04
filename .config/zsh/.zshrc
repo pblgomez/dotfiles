@@ -4,7 +4,12 @@
 # Default programs:
 export TERMINAL="alacritty"
 export EDITOR="nvim"
-export BROWSER="qutebrowser"
+
+web_broser=firefox
+  export BROWSER=
+  xdg-settings set default-web-browser $web_browser.desktop
+  export BROWSER=$web_browser
+
 export READER="zathura"
 export TERM=xterm-256color
 
