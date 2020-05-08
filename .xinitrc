@@ -1,15 +1,12 @@
 #!/bin/sh
 
-#xrandr --setprovideroutputsource modesetting NVIDIA-0
-#xrandr --auto
-#exec /usr/bin/prime-offload
-
-# keyboard layout
-setxkbmap us,es alt-intl-unicode, -option grp:rctrl_rshift_toggle
+# xrandr --setprovideroutputsource modesetting NVIDIA-0
+# xrandr --auto
 
 # apps at startup
 autorandr-launcher &
 dunst &
+kdeconnect-indicator &
 udiskie &
 unclutter &
 ~/.local/bin/touchpad-enable.sh &
@@ -27,13 +24,16 @@ fi
 
 # xmodmap ~/.config/Xmodmap
 sxhkd &
+
 # Custom keyboard map
 if [ -f $HOME/.config/pbl.xkb ]; then
   xkbcomp $HOME/.config/pbl.xkb $DISPLAY
 else
-  setxkbmap us,es alt-intl-unicode, -option grp:rctrl_rshift_toggle
+  setxkbmap us,es altgr-intl, -option grp:rctrl_rshift_toggle
 fi
+
+# For nVidia
+# /usr/bin/prime-offload &
 
 # desktop
 exec i3
-
