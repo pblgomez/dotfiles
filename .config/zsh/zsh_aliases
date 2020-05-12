@@ -2,6 +2,8 @@ alias v=$EDITOR
 alias vi=$EDITOR
 alias vim=$EDITOR
 
+# alias vifm="$TERMINAL -e vifm"
+
 alias ga='git add .'
 alias gc='git commit'
 alias gitu='git add . && git commit && git push'

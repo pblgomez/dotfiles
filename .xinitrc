@@ -13,11 +13,12 @@ unclutter &
 picom --experimental-backends --backend glx --blur-method dual_kawase --blur-strength 20 &
 redshift &
 autorandr -c &
+xrdb ~/.Xresources
 # optimus-manager-qt
 
 # wallpaper
 if [ -f ~/.cache/bg ]; then
-  sleep 5; xwallpaper --zoom ~/.cache/bg &
+  sleep 4; xwallpaper --zoom ~/.cache/bg &
 else
   cp $(find $(pwd)/Pictures/Wallpapers -type f | sort -R |head -n1) ~/.cache/bg && convert -resize 1920 -blur 30x30 ~/.cache/bg ~/.cache/bg.png && xwallpaper --zoom ~/.cache/bg &
 fi

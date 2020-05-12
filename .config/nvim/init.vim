@@ -33,8 +33,8 @@ Plug 'ap/vim-css-color'
 Plug 'Yggdroot/indentLine'
 Plug 'itchyny/lightline.vim'
 Plug 'vifm/vifm.vim'
-
-Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'arcticicestudio/nord-vim'
+"Plug 'dracula/vim', { 'as': 'dracula' }
 " Plug 'arcticicestudio/nord-vim'
 call plug#end()
 
@@ -42,8 +42,11 @@ call plug#end()
 map <Leader>vv :Vifm<CR>
 map <Leader>vs :VsplitVifm<CR>
 
+
+
 " Colors
+colorscheme nord
 " colorscheme dracula
 let g:lightline = {
-  \ 'colorscheme': 'dracula',
+  \ 'colorscheme': 'nord',
   \ }
