@@ -1,28 +1,40 @@
 # vim: set ft=sxhkdrc:
-#
-# bspwm hotkeys
-#
-
 
 
 ############################################################
 # Apps
 ############################################################
 
+# make sxhkd reload its configuration files:
+super + Escape
+	pkill -USR1 -x sxhkd
+
+# program launcher
+super + @space
+	dmenu_run -nf '#D8DEE9' -nb '#2E3440' -sb '#88C0D0' -sf '#2E3440' -fn 'DejaVuSans-10'
+super + d
+	dmenu_run -nf '#D8DEE9' -nb '#2E3440' -sb '#88C0D0' -sf '#2E3440' -fn 'DejaVuSans-10'
+super + shift + d
+	j4-dmenu-desktop --dmenu="dmenu -nf '#D8DEE9' -nb '#2E3440' -sb '#88C0D0' -sf '#2E3440' -fn 'DejaVuSans-10'"
+
+# Terminal emulator
+super + Return
+  alacritty
+ctrl + alt +t
+	alacritty
+
+# Vifm
 super + shift + Return
   alacritty -e vifm
 
-super + Return
-  alacritty
 
-super + d
-	dmenu_run -nf '#D8DEE9' -nb '#2E3440' -sb '#4C566A' -sf '#E5E9F0' -fn 'monospace-10'
-
-super + shift + d
-	j4-dmenu-desktop --dmenu="dmenu -nf '#D8DEE9' -nb '#2E3440' -sb '#4C566A' -sf '#E5E9F0' -fn 'monospace-10'"
-	
-super + b ; {f,q,b}
+# Browsers
+ctrl + alt + {f,q,b}
 	{firefox,qutebrowser,brave}
+
+# Edit configs
+ctrl + alt + c
+  $HOME/.local/bin/dmenu-edit-configs.sh
 
 
 ############################################################
@@ -41,4 +53,7 @@ XF86AudioRaiseVolume
 XF86AudioLowerVolume
   pamixer --decrease 5 && dunstify -i "/usr/share/icons/Adwaita/16x16/status/audio-volume-high-symbolic.symbolic.png" -r 2 `pamixer --get-volume-human`
 XF86AudioMute
-  pamixer -t && dunstify -i "/usr/share/icons/Adwaita/16x16/status/audio-volume-high-symbolic.symbolic.png" -r 2 `pamixer --get-volume-human` 
+  pamixer -t && dunstify -i "/usr/share/icons/Adwaita/16x16/status/audio-volume-high-symbolic.symbolic.png" -r 2 `pamixer --get-volume-human`
+
+
+
