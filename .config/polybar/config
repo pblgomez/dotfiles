@@ -43,9 +43,11 @@ color15 = ${xrdb:color15}
 
 
 [bar/pbl]
-;monitor = ${env:MONITOR:HDMI-1}
+monitor = ${env:MONITOR:}
+monitor-scrict=false
+override-redirect = false
 width = 100%
-height = 24
+height = 20
 ;offset-x = 1%
 ;offset-y = 1%
 radius = 0.0
@@ -129,12 +131,13 @@ label-mounted-underline = ${colors.color1}
 type = internal/bspwm
 
 label-focused = %index%
-label-focused-background = ${colors.background-alt}
+label-focused-background = ${colors.background}
 label-focused-underline= ${colors.primary}
 label-focused-padding = 2
 
 label-occupied = %index%
 label-occupied-padding = 2
+label-occupied-underline= ${colors.color2}
 
 label-urgent = %index%!
 label-urgent-background = ${colors.alert}
@@ -154,7 +157,7 @@ index-sort = true
 wrapping-scroll = false
 
 ; Only show workspaces on the same output as the bar
-;pin-workspaces = true
+pin-workspaces = true
 
 label-mode-padding = 2
 label-mode-foreground = #000

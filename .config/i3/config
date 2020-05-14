@@ -282,7 +282,8 @@ workspace 8 output $secondMonitor
 workspace 9 output $firstMonitor
 workspace 10 output $firstMonitor
 
-
+# Swap displays
+bindsym $mod+z exec ~/.local/bin/i3-display-swap.sh
 
 #############################################################
 # how to exit, logoff, suspend, ...
@@ -355,4 +356,4 @@ for_window [class="Spotify"] move to workspace 10
 #####################################################################################################################
 #################                              Start up apps                                        #################
 #####################################################################################################################
-exec --no-startup-id polybar -r pbl -c ~/.config/polybar/config
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
