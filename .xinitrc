@@ -3,6 +3,9 @@
 # xrandr --setprovideroutputsource modesetting NVIDIA-0
 # xrandr --auto
 
+#QT appeareance, you have to install qt5ct and kvantum
+export QT_QPA_PLATFORMTHEME="qt5ct"
+
 # apps at startup
 autorandr-launcher &
 dunst &
@@ -10,7 +13,7 @@ kdeconnect-indicator &
 udiskie &
 unclutter &
 ~/.local/bin/touchpad-enable.sh &
-picom --experimental-backends --backend glx --blur-method dual_kawase --blur-strength 20 &
+picom --experimental-backends --backend glx --blur-method dual_kawase --blur-strength 5 &
 redshift &
 autorandr -c &
 xrdb ~/.Xresources
