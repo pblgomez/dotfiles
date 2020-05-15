@@ -1,14 +1,70 @@
-# @-moz-document url-prefix(about:),
-# url-prefix(chrome://) {
-#   :root {
-#     --in-content-page-background: #1c1c1c !important;
-#   }
-# }
-# 
-# @-moz-document url-prefix(about:home),
-# url-prefix(about:newtab),
-# url-prefix(about:blank) {
-#   html {
-#     background: var(--in-content-page-background) !important;
-#   }
-# }
+:root {
+  /*
+  Nord Color scheme
+  */
+  --nord0:  #2E3440;
+  --nord1:  #3B4252;
+  --nord2:  #434C5E;
+  --nord3:  #4C566A;
+  --nord4:  #D8DEE9;
+  --nord5:  #E5E9F0;
+  --nord6:  #ECEFF4;
+  --nord7:  #8FBCBB;
+  --nord8:  #88C0D0;
+  --nord9:  #81A1C1;
+  --nord10: #5E81AC;
+  --nord11: #BF616A;
+  --nord12: #D08770;
+  --nord13: #EBCB8B;
+  --nord14: #A3BE8C;
+  --nord15: #B48EAD;
+}
+
+
+
+/*! Alters the webextension Vim Vixen
+  IMPORTANT: change the Internal UUID */
+@-moz-document url-prefix("moz-extension://f6417444-df5f-4387-8a92-d1675416efa7/") {
+  .vimvixen-console-command-wrapper {
+    border-top: 1px solid!important;
+  }
+  .vimvixen-console-completion-title {
+    background-color: var(--nord0) !important;
+    border-color: var(--nord7)!important
+  }
+  .vimvixen-console-completion {
+    background-color: var(--nord2) !important;
+    color: var(--nord5) !important;
+    font-family: Menlo,monospace!important
+  }
+  .vimvixen-console-command,
+  .vimvixen-console-command-input {
+    background-color: var(--nord0) !important;
+    color: var(--nord7) !important
+  }
+  .vimvixen-console-completion-item-url {
+    color: var(--nord14) !important
+  }
+  .vimvixen-console-completion-item.vimvixen-completion-selected {
+    background-color: var(--nord10)!important;
+    color: var(--nord5) !important
+  }
+  .vimvixen-console-error {
+    background-color: var(--nord11)!important;
+    color:var(--nord12)!important
+  }
+  .vimvixen-settings-form,
+  h1 {
+    color: var(--tone-4)!important
+  }
+  .vimvixen-settings-form textarea[name=json] {
+    background-color: var(--tone-6)!important;
+    -moz-appearance: none!important;
+    color: var(--tone-4)!important;
+    border-color: var(--tone-6)
+  }
+  ::-moz-selection {
+    color: var(--nord8);
+    background: var(--nord14);
+  }
+}
