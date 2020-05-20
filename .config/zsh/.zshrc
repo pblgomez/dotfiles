@@ -1,3 +1,7 @@
+function ssh () {/usr/bin/ssh -t $@ "tmux attach || tmux new";}
+
+
+
 # Start X on tty1
 [ /dev/pts/0 = /dev/tty1 ] && ! pgrep -x Xorg >/dev/null && exec startx
 
