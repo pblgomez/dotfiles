@@ -19,13 +19,13 @@ super + shift + d
 
 # Terminal emulator
 super + Return
-  alacritty
+  kitty
 ctrl + alt +t
-	alacritty
+	kitty
 
 # Vifm
 super + shift + Return
-  alacritty -e vifm
+  kitty -e vifm
 
 
 # Browsers
@@ -35,6 +35,12 @@ ctrl + alt + {f,q,b}
 # Edit configs
 ctrl + alt + c
   $HOME/.local/bin/dmenu-edit-configs.sh
+
+
+# Screencast
+ctrl + alt + r
+  $HOME/.local/bin/screencast.sh
+
 
 
 ############################################################

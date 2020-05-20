@@ -1,10 +1,6 @@
 # Start X on tty1
 [ /dev/pts/0 = /dev/tty1 ] && ! pgrep -x Xorg >/dev/null && exec startx
 
-# Default programs:
-export TERMINAL="alacritty"
-export EDITOR="nvim"
-
 web_broser=firefox
   export BROWSER=
   xdg-settings set default-web-browser $web_browser.desktop
@@ -28,6 +24,7 @@ export BW_SESSION=$(cat ~/.config/Bitwarden\ CLI/.env)
 
 # PATH
 export PATH=$PATH:~/.local/bin
+export PATH=$PATH:/snap/bin
 
 ## Options section
 setopt correct                                                  # Auto correct mistakes

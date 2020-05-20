@@ -6,6 +6,10 @@
 #QT appeareance, you have to install qt5ct and kvantum
 export QT_QPA_PLATFORMTHEME="qt5ct"
 
+# Default programs:
+export TERMINAL="kitty"
+export EDITOR="nvim"
+
 # apps at startup
 autorandr-launcher &
 dunst &
@@ -17,6 +21,7 @@ picom --experimental-backends --backend glx --blur-method dual_kawase --blur-str
 redshift &
 autorandr -c &
 xrdb ~/.Xresources
+/usr/lib/kdeconnectd &
 # optimus-manager-qt
 
 # wallpaper
