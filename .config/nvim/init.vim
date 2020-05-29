@@ -6,24 +6,18 @@ set number relativenumber     " Set numbers on the left side
 
 " Tabs
 filetype indent on            " For 2 spaces on tabs
-" On pressing tab, insert 2 spaces
-set expandtab
-" show existing tab with 2 spaces width
-set tabstop=2
+set expandtab                 " On pressing tab, insert 2 spaces
+set tabstop=2                 " show existing tab with 2 spaces width
 set softtabstop=2
-" when indenting with '>', use 2 spaces width
-set shiftwidth=2
-
+set shiftwidth=2              " when indenting with '>', use 2 spaces width
 
 
 " To paste text from outside vim and not indent everything wrong (Paste mode)
 set pastetoggle=<Ctrl+F4>
 
 
-
 "Hide modes if using lightline
 set noshowmode
-
 
 " Plugins
 call plug#begin('~/.local/share/nvim/plugged')
@@ -39,7 +33,6 @@ call plug#end()
 " Vifm
 map <Leader>vv :Vifm<CR>
 map <Leader>vs :VsplitVifm<CR>
-
 
 
 " Colors
