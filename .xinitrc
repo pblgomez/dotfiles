@@ -35,8 +35,9 @@ fi
 sxhkd &
 
 # Custom keyboard map
+#  xkbcomp $DISPLAY output.xkb  # To get current configuration
+#  now follow: https://wiki.archlinux.org/index.php/X_keyboard_extension#Caps_hjkl_as_vimlike_arrow_keys
 if [ -f $HOME/.config/pbl.xkb ]; then
-  # https://wiki.archlinux.org/index.php/X_keyboard_extension#Caps_hjkl_as_vimlike_arrow_keys
   xkbcomp $HOME/.config/pbl.xkb $DISPLAY
 else
   setxkbmap us,es altgr-intl, -option grp:rctrl_rshift_toggle

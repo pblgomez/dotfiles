@@ -684,16 +684,15 @@ xkb_types "complete" {
         level_name[Level3]= "Alt Base";
         level_name[Level4]= "Alt Number";
     };
-   type "CUST_CAPSLOCK" {
+    type "CUST_CAPSLOCK" {
        modifiers= Shift+Lock; 
-       map[Shift] = Level2;            // Note that this maps Shift only of {Shift,Lock} to Level2. Alt+Shift will be mapped to Level2
-       map[Shift+Lock] = Level3;       // but Lock+Shift won't map to Level2 even without this line.
+       map[Shift] = Level2;            //maps shift and no Lock. Shift+Alt goes here, too, because Alt isn't in modifiers.
        map[Lock] = Level3;
+       map[Shift+Lock] = Level3;       //maps shift and Lock. Shift+Lock+Alt goes here, too.
        level_name[Level1]= "Base";
        level_name[Level2]= "Shift";
        level_name[Level3]= "Lock";
-   };
-
+    };
 };
 
 xkb_compatibility "complete" {
@@ -1186,10 +1185,6 @@ xkb_compatibility "complete" {
         indicatorDrivesKeyboard;
         controls= mouseKeys;
     };
-   interpret osfLeft {                                              // Note that osfLeft is a keysym of its own, not a modified Left. You can swap it for any unused one.
-       repeat= True;
-       action = RedirectKey(keycode=<LEFT>, clearmodifiers=Lock);   // We could add a modifiers=... argument if adding additional modifiers was desired
-    };
 };
 
 xkb_symbols "pc+us(altgr-intl)+es:2+inet(evdev)+group(rctrl_rshift_toggle)" {
@@ -1346,30 +1341,38 @@ xkb_symbols "pc+us(altgr-intl)+es:2+inet(evdev)+group(rctrl_rshift_toggle)" {
         type[group2]= "FOUR_LEVEL_SEMIALPHABETIC",
         symbols[Group1]= [               f,               F,               f,               F ],
         symbols[Group2]= [               f,               F,         dstroke,     ordfeminine ]
-    }; key <AC05> { type= "FOUR_LEVEL_ALPHABETIC", symbols[Group1]= [               g,               G,               g,               G ], symbols[Group2]= [               g,               G,             eng,             ENG ] };
+    };
+    key <AC05> {
+        type= "FOUR_LEVEL_ALPHABETIC",
+        symbols[Group1]= [               g,               G,               g,               G ],
+        symbols[Group2]= [               g,               G,             eng,             ENG ]
+    };
     key <AC06> {
         type= "CUST_CAPSLOCK",
-        symbols[Group1]= [               h,               H,            Left,           Left ],
-        symbols[Group2]= [               h,               H,            Left,           Left ]
+        symbols[Group1]= [               h,               H,               h,               H ],
+        symbols[Group2]= [               h,               H,         hstroke,         Hstroke ],
+        actions= [      NoAction(),      NoAction(),   RedirectKey(keycode=<LEFT>, clearmods=Lock) ]
     };
     key <AC07> {
         type= "CUST_CAPSLOCK",
-        symbols[Group1]= [               j,               J,               Down,               Down ],
-        symbols[Group2]= [               j,               J,       Down,       Down ]
+        symbols[Group1]= [               j,               J,      idiaeresis,      Idiaeresis ],
+        symbols[Group2]= [               j,               J,       dead_hook,       dead_horn ],
+        actions= [      NoAction(),      NoAction(),   RedirectKey(keycode=<DOWN>, clearmods=Lock) ]
     };
     key <AC08> {
         type= "CUST_CAPSLOCK",
-        symbols[Group1]= [               k,               K,              Up,              Up ],
-        symbols[Group2]= [               k,               K,             Up,       Up ]
+        symbols[Group1]= [               k,               K,              oe,              OE ],
+        symbols[Group2]= [               k,               K,             kra,       ampersand ],
+        actions= [      NoAction(),      NoAction(),   RedirectKey(keycode=<UP>, clearmods=Lock) ]
     };
     key <AC09> {
         type= "CUST_CAPSLOCK",
-        symbols[Group1]= [               l,               L,          Right,          Right ],
-        symbols[Group2]= [               l,               L,         Right,         Right ]
+        symbols[Group1]= [               l,               L,          oslash,          Oslash ],
+        symbols[Group2]= [               l,               L,         lstroke,         Lstroke ],
+        actions= [      NoAction(),      NoAction(),   RedirectKey(keycode=<RGHT>, clearmods=Lock) ]
     };
     key <AC10> {
-        type[group1]= "FOUR_LEVEL",
-        type[group2]= "FOUR_LEVEL_SEMIALPHABETIC",
+        type= "CUST_CAPSLOCK",
         symbols[Group1]= [       semicolon,           colon,       paragraph,          degree ],
         symbols[Group2]= [          ntilde,          Ntilde,      asciitilde, dead_doubleacute ]
     };
