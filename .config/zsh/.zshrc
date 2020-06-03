@@ -1,4 +1,4 @@
-function ssh () {/usr/bin/ssh -t $@ "tmux attach || tmux new";}
+function ssh () {/usr/bin/ssh -t $@ "tmux attach || tmux new || /bin/bash";}
 
 
 
@@ -28,7 +28,7 @@ export BW_SESSION=$(cat ~/.config/Bitwarden\ CLI/.env)
 
 # PATH
 export PATH=$PATH:~/.local/bin
-export PATH=$PATH:/snap/bin
+export PATH=$PATH:/snap/bin:/var/lib/snapd/snap/bin
 
 ## Options section
 setopt correct                                                  # Auto correct mistakes
