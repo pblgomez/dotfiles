@@ -15,16 +15,26 @@
     "python": "$pythonPath $fullFileName",
   },
   "workbench.iconTheme": "material-icon-theme",
-  // "python.formatting.autopep8Args": [
-  //   "--max-line-length",
-  //   "70",
-  //   "--aggressive",
-  //   "--aggressive",
-  //   "--in-place"
-  // ],
   "git.autofetch": true,
   "editor.formatOnType": true,
   "editor.formatOnSave": true,
   "editor.fontFamily": "'Fira Code', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
-  "editor.fontLigatures": true
+  "editor.fontLigatures": true,
+  "terraform.indexing": {
+    "enabled": false,
+    "liveIndexing": false,
+    "delay": 500,
+    "exclude": [
+      ".terraform/**/*",
+      "**/.terraform/**/*"
+    ]
+  },
+  "terraform.languageServer": {
+    "external": true,
+    "args": [
+      "serve"
+    ]
+  },
+  "editor.renderControlCharacters": false,
+  "editor.renderWhitespace": "none"
 }
