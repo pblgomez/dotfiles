@@ -13,7 +13,7 @@ set shiftwidth=2              " when indenting with '>', use 2 spaces width
 
 
 " To paste text from outside vim and not indent everything wrong (Paste mode)
-set pastetoggle=<Ctrl+F4>
+set pastetoggle=<leader>p
 
 
 "Hide modes if using lightline
