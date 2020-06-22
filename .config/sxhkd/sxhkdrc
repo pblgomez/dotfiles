@@ -53,7 +53,7 @@ XF86MonBrightnessUp
 XF86MonBrightnessDown
   light -U 10 && dunstify `light -G | cut -f1 -d '.'` -i "/usr/share/icons/Adwaita/16x16/status/display-brightness-symbolic.symbolic.png" -r 1
 
-# Volumen
+# Audio
 XF86AudioRaiseVolume
   pamixer -u --increase 5 && dunstify -i "/usr/share/icons/Adwaita/16x16/status/audio-volume-high-symbolic.symbolic.png" -r 2 `pamixer --get-volume-human`
 XF86AudioLowerVolume
@@ -61,5 +61,6 @@ XF86AudioLowerVolume
 XF86AudioMute
   pamixer -t && dunstify -i "/usr/share/icons/Adwaita/16x16/status/audio-volume-high-symbolic.symbolic.png" -r 2 `pamixer --get-volume-human`
 
-
-
+# Mute microphone
+super + c
+  amixer set Capture toggle && sleep 1; amixer get Capture | grep '\[off\]' && dunstify -r 34 --timeout=500 "MIC switched OFF" || dunstify -r 34 --timeout=500 "MIC switched ON"

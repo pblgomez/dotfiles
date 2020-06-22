@@ -76,7 +76,7 @@ font-3 = "Font Awesome 5 Brands:pixelsize=8;1"
 
 modules-left = bspwm i3
 modules-center = date
-modules-right = filesystem !xbacklight !alsa !xkeyboard memory cpu battery temperature !powermenu !mpd eth wlan pulseaudio 
+modules-right = mic-muted filesystem !xbacklight !alsa !xkeyboard memory cpu battery temperature !powermenu !mpd eth wlan pulseaudio 
 
 tray-position = right
 tray-padding = 2
@@ -446,5 +446,10 @@ screenchange-reload = true
 [global/wm]
 margin-top = 5
 margin-bottom = 5
+
+[module/mic-muted]
+type = custom/script
+exec = amixer get Capture | grep off 1>/dev/null && echo "Mic OFF" || echo "Mic ON"
+interval = 1
 
 ; vim:ft=dosini
