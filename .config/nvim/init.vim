@@ -20,7 +20,15 @@ set pastetoggle=<leader>p
 set noshowmode
 
 " Plugins
-call plug#begin('~/.local/share/nvim/plugged')
+" Install if ont installed
+if empty(glob('~/.config/nvim/autoload/plug.vim'))
+  silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+" call plug#begin('~/.local/share/nvim/plugged')
+call plug#begin()
 Plug 'ap/vim-css-color'
 Plug 'Yggdroot/indentLine'
 Plug 'itchyny/lightline.vim'
