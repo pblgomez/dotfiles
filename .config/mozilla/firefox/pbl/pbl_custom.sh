@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-prefs_file="$XDG_CONFIG_HOME/mozilla/firefox/$USER/prefs.js"
+prefs_file="$HOME/.config/mozilla/firefox/$USER/prefs.js"
 
 preferencias=( \
   # Compact UI
@@ -34,4 +34,3 @@ for str in "${preferencias[@]}"; do
   sed -i '/'${to_del}'.*/d' $prefs_file
   grep -q '$str' $prefs_file || echo "$str" >> $prefs_file
 done
-

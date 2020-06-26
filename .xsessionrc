@@ -1,0 +1,33 @@
+#!/usr/bin/env sh
+
+############################################################
+# Read by DE's ( source it for the wm )
+############################################################
+
+
+# Default programs:
+export TERMINAL="kitty"
+export EDITOR="nvim"
+
+
+# Default programs:
+web_broser=firefox
+  export BROWSER=
+  xdg-settings set default-web-browser $web_browser.desktop
+  export BROWSER=$web_browser
+
+
+# PATHS
+export PATH=$PATH:~/.local/bin
+export PATH=$PATH:/snap/bin:/var/lib/snapd/snap/bin
+# export XDG_CONFIG_HOME="~/.config"
+
+
+# Custom keyboard map
+#  xkbcomp $DISPLAY output.xkb  # To get current configuration
+#  now follow: https://wiki.archlinux.org/index.php/X_keyboard_extension#Caps_hjkl_as_vimlike_arrow_keys
+if [ -f $HOME/.config/pbl.xkb ]; then
+  xkbcomp $HOME/.config/pbl.xkb $DISPLAY
+else
+  setxkbmap us,es altgr-intl, -option grp:rctrl_rshift_toggle
+fi
