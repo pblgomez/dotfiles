@@ -1,8 +1,36 @@
-[khotkeys][Global Shortcuts]
+[ActivityManager][Global Shortcuts]
 switch-to-activity-214851e6-3900-4211-b758-6879c59af9e6=none
 switch-to-activity-646cea0c-3955-48a5-84b3-49806f3c2bf8=none
+
+[kded5][Global Shortcuts]
+Disable Touchpad=Touchpad Off
+Enable Touchpad=Touchpad On
+Show System Activity=Ctrl+Esc
+Switch keyboard layout to English (intl., with AltGr dead keys)=none
+Switch to Next Keyboard Layout=Ctrl+Alt+K
+Toggle Touchpad=Touchpad Toggle
+display=Display; Meta+P
 {71dce4ce-1fc6-427f-a97b-eb3b7249e0a7}=Ctrl+Alt+T
 {d03619b6-9b3c-48cc-9d9c-a2aadb485550}=none
+
+[kmix][Global Shortcuts]
+decrease_microphone_volume=Microphone Volume Down
+decrease_volume=Volume Down
+increase_microphone_volume=Microphone Volume Up
+increase_volume=Volume Up
+mic_mute=Microphone Mute
+mute=Volume Mute
+
+[krunner.desktop][Global Shortcuts]
+RunClipboard=Alt+Shift+F2
+_launch=Alt+Space; Alt+F2; Search
+
+[ksmserver][Global Shortcuts]
+Halt Without Confirmation=Ctrl+Alt+Shift+PgDown
+Lock Session=Meta+L; Ctrl+Alt+L; Screensaver
+Log Out=Ctrl+Alt+Del
+Log Out Without Confirmation=Ctrl+Alt+Shift+Del
+Reboot Without Confirmation=Ctrl+Alt+Shift+PgUp
 
 [kwin][Global Shortcuts]
 Activate Window Demanding Attention=Ctrl+Alt+A
@@ -152,6 +180,38 @@ view_actual_size=none
 view_zoom_in=Meta+=
 view_zoom_out=Meta+-
 
+[mediacontrol][Global Shortcuts]
+mediavolumedown=none
+mediavolumeup=none
+nextmedia=Media Next
+playpausemedia=Media Play
+previousmedia=Media Previous
+stopmedia=Media Stop
+
+[org.kde.dolphin.desktop][Global Shortcuts]
+_launch=Meta+E
+
+[org.kde.plasma.emojier.desktop][Global Shortcuts]
+_launch=Meta+.
+
+[org.kde.spectacle.desktop][Global Shortcuts]
+ActiveWindowScreenShot=Meta+Print
+CurrentMonitorScreenShot=none
+FullScreenScreenShot=Shift+Print
+RectangularRegionScreenShot=Meta+Shift+Print
+_launch=Print
+
+[org_kde_powerdevil][Global Shortcuts]
+Decrease Keyboard Brightness=Keyboard Brightness Down
+Decrease Screen Brightness=Monitor Brightness Down
+Hibernate=Hibernate
+Increase Keyboard Brightness=Keyboard Brightness Up
+Increase Screen Brightness=Monitor Brightness Up
+PowerOff=Power Off
+Sleep=Sleep
+Toggle Keyboard Backlight=Keyboard Light On/Off
+Turn Off Screen=none
+
 [plasmashell][Global Shortcuts]
 activate task manager entry 1=none
 activate task manager entry 10=none
@@ -176,7 +236,7 @@ previous activity=Meta+Shift+Tab
 repeat_action=Ctrl+Alt+R
 show dashboard=Ctrl+F12
 show-barcode=none
-show-on-mouse-pos=none
+show-on-mouse-pos=Meta+V
 stop current activity=Meta+S
 switch to next activity=none
 switch to previous activity=none
