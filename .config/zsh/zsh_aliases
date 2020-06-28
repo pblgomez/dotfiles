@@ -31,3 +31,5 @@ alias -s {yml,yaml}=$EDITOR
 
 # A global alias enables you to create an alias that is expanded anywhere in the command line, not just at the beginning.
 alias -g G='| grep -i'
+
+alias tf='if ! hash terraform; then terraform-snap.terraform; fi'
