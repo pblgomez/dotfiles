@@ -1,8 +1,38 @@
 [ActivityManager][Global Shortcuts]
+activate task manager entry 1=none
+activate task manager entry 10=none
+activate task manager entry 2=none
+activate task manager entry 3=none
+activate task manager entry 4=none
+activate task manager entry 5=none
+activate task manager entry 6=none
+activate task manager entry 7=none
+activate task manager entry 8=none
+activate task manager entry 9=none
+activate widget 3=Alt+F1
+activate widget 32=none
+clear-history=none
+clipboard_action=Ctrl+Alt+X
+cycleNextAction=none
+cyclePrevAction=none
+edit_clipboard=none
+manage activities=Meta+Q
+next activity=Meta+Tab
+previous activity=Meta+Shift+Tab
+repeat_action=Ctrl+Alt+R
+show dashboard=Ctrl+F12
+show-barcode=none
+show-on-mouse-pos=Meta+V
+stop current activity=Meta+S
+switch to next activity=none
+switch to previous activity=none
 switch-to-activity-214851e6-3900-4211-b758-6879c59af9e6=none
 switch-to-activity-646cea0c-3955-48a5-84b3-49806f3c2bf8=none
+switch-to-activity-ca578ef2-116d-44c4-8a1c-36b5d8ada29e=none
+switch-to-activity-da17dc8a-813a-4025-9412-b1426fb91861=none
+toggle do not disturb=none
 
-[kded5][Global Shortcuts]
+[KDE Keyboard Layout Switcher][Global Shortcuts]
 Disable Touchpad=Touchpad Off
 Enable Touchpad=Touchpad On
 Show System Activity=Ctrl+Esc
@@ -18,7 +48,7 @@ decrease_microphone_volume=Microphone Volume Down
 decrease_volume=Volume Down
 increase_microphone_volume=Microphone Volume Up
 increase_volume=Volume Up
-mic_mute=Microphone Mute
+mic_mute=Meta+C
 mute=Volume Mute
 
 [krunner.desktop][Global Shortcuts]
@@ -208,36 +238,6 @@ Hibernate=Hibernate
 Increase Keyboard Brightness=Keyboard Brightness Up
 Increase Screen Brightness=Monitor Brightness Up
 PowerOff=Power Off
-Sleep=Sleep
+Sleep=Sleep; Ctrl+Alt+Shift+S
 Toggle Keyboard Backlight=Keyboard Light On/Off
 Turn Off Screen=none
-
-[plasmashell][Global Shortcuts]
-activate task manager entry 1=none
-activate task manager entry 10=none
-activate task manager entry 2=none
-activate task manager entry 3=none
-activate task manager entry 4=none
-activate task manager entry 5=none
-activate task manager entry 6=none
-activate task manager entry 7=none
-activate task manager entry 8=none
-activate task manager entry 9=none
-activate widget 3=Alt+F1
-activate widget 32=none
-clear-history=none
-clipboard_action=Ctrl+Alt+X
-cycleNextAction=none
-cyclePrevAction=none
-edit_clipboard=none
-manage activities=Meta+Q
-next activity=Meta+Tab
-previous activity=Meta+Shift+Tab
-repeat_action=Ctrl+Alt+R
-show dashboard=Ctrl+F12
-show-barcode=none
-show-on-mouse-pos=Meta+V
-stop current activity=Meta+S
-switch to next activity=none
-switch to previous activity=none
-toggle do not disturb=none
