@@ -5,14 +5,12 @@
   "files.autoSave": "afterDelay",
   "workbench.colorTheme": "Nord",
   "workbench.startupEditor": "newUntitledFile",
-  "vscode-home-assistant.longLivedAccessToken": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiIxMzM0NWEwY2ZkOWY0MTk3YTU4NTkyZmIyZDUyNzc4NiIsImlhdCI6MTU3MjM3MjE3MywiZXhwIjoxODg3NzMyMTczfQ.Ne4xgolILIshlLtPvb8OCOVdURrND2TqzaZb1ESRRQ0",
-  "vscode-home-assistant.hostUrl": "https://192.168.1.101:8123",
   "window.zoomLevel": 0,
   "editor.fontSize": 16,
   "code-runner.clearPreviousOutput": true,
   "code-runner.runInTerminal": true,
   "code-runner.executorMap": {
-    "python": "$pythonPath $fullFileName",
+    "python": "$pythonPath $fullFileName"
   },
   "workbench.iconTheme": "material-icon-theme",
   "git.autofetch": true,
