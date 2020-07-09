@@ -44,8 +44,8 @@ map <Leader>vs :VsplitVifm<CR>
 
 
 " Colors
-colorscheme nord
+" colorscheme nord
 " colorscheme dracula
-let g:lightline = {
-  \ 'colorscheme': 'nord',
-  \ }
+" let g:lightline = {
+"   \ 'colorscheme': 'nord',
+"   \ }
