@@ -6,8 +6,12 @@
 
 
 # Default programs:
+# export TERMINAL="kitty"
 export TERMINAL="kitty"
 export EDITOR="nvim"
+
+# Envs
+[ -f ~/.ssh/envs ] && source ~/.ssh/envs
 
 
 # Default programs:
@@ -19,6 +23,7 @@ web_broser=firefox
 
 # PATHS
 export PATH=$PATH:~/.local/bin
+export PATH=$PATH:/opt/AppImage
 export PATH=$PATH:/snap/bin:/var/lib/snapd/snap/bin
 # export XDG_CONFIG_HOME="~/.config"
 
@@ -31,3 +36,8 @@ if [ -f $HOME/.config/pbl.xkb ]; then
 else
   setxkbmap us,es altgr-intl, -option grp:rctrl_rshift_toggle
 fi
+
+
+## Start up programs
+sxhkd &
+redshift &
