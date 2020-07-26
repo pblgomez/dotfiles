@@ -1,6 +1,9 @@
 # for compatibility reasons
 export TERM=xterm-256color
 
+# For cache dir
+ZSH_CACHE_DIR="$HOME/.cache/zsh"
+
 # ssh with tmux
 function ssh () {
   /usr/bin/ssh -t $@ "tmux attach 2>/dev/null || \
@@ -41,10 +44,6 @@ bindkey -v
 
 ## Alias section 
 source $ZDOTDIR/zsh_aliases
-alias cp="cp -i"                                                # Confirm before overwriting something
-alias df='df -h'                                                # Human-readable sizes
-alias free='free -m'                                            # Show sizes in MB
-alias gitu='git add . && git commit && git push'
 
 # Theming section  
 autoload -U compinit colors zcalc
