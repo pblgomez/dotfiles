@@ -11,6 +11,9 @@ set tabstop=2                 " show existing tab with 2 spaces width
 set softtabstop=2
 set shiftwidth=2              " when indenting with '>', use 2 spaces width
 
+"Spell
+set spelllang=en_us,es_es
+" set spell
 
 " To paste text from outside vim and not indent everything wrong (Paste mode)
 set pastetoggle=<leader>p
