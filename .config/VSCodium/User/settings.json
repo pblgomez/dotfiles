@@ -12,7 +12,6 @@
   "code-runner.executorMap": {
     "python": "$pythonPath $fullFileName"
   },
-  "workbench.iconTheme": "material-icon-theme",
   "git.autofetch": true,
   "editor.formatOnType": true,
   "editor.formatOnSave": true,
@@ -34,5 +33,11 @@
     ]
   },
   "editor.renderControlCharacters": false,
-  "editor.renderWhitespace": "none"
+  "editor.renderWhitespace": "none",
+  "files.watcherExclude": {
+    "**/.git/objects/**": true,
+    "**/.git/subtree-cache/**": true,
+    "**/.venv/*/**": true
+  },
+  "update.mode": "none"
 }
