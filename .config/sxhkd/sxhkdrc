@@ -10,8 +10,8 @@ super + Escape
 	pkill -USR1 -x sxhkd
 
 # program launcher
-super + @space
-	dmenu_run -nf '#D8DEE9' -nb '#2E3440' -sb '#88C0D0' -sf '#2E3440' -fn 'DejaVuSans-10'
+# super + @space
+# 	dmenu_run -nf '#D8DEE9' -nb '#2E3440' -sb '#88C0D0' -sf '#2E3440' -fn 'DejaVuSans-10'
 super + d
 	dmenu_run -nf '#D8DEE9' -nb '#2E3440' -sb '#88C0D0' -sf '#2E3440' -fn 'DejaVuSans-10'
 super + shift + d
@@ -19,9 +19,9 @@ super + shift + d
 
 # Terminal emulator
 super + Return
-  kitty
+  $TERMINAL
 ctrl + alt +t
-	kitty
+	$TERMINAL
 
 # Vifm
 super + shift + Return
@@ -47,19 +47,19 @@ ctrl + alt + r
 # Especials
 ############################################################
 
-# Brightness
-XF86MonBrightnessUp
-  light -A 10 && dunstify `light -G | cut -f1 -d '.'` -i "/usr/share/icons/Adwaita/16x16/status/display-brightness-symbolic.symbolic.png" -r 1
-XF86MonBrightnessDown
-  light -U 10 && dunstify `light -G | cut -f1 -d '.'` -i "/usr/share/icons/Adwaita/16x16/status/display-brightness-symbolic.symbolic.png" -r 1
-
-# Audio
-XF86AudioRaiseVolume
-  pamixer -u --increase 5 && dunstify -i "/usr/share/icons/Adwaita/16x16/status/audio-volume-high-symbolic.symbolic.png" -r 2 `pamixer --get-volume-human`
-XF86AudioLowerVolume
-  pamixer --decrease 5 && dunstify -i "/usr/share/icons/Adwaita/16x16/status/audio-volume-high-symbolic.symbolic.png" -r 2 `pamixer --get-volume-human`
-XF86AudioMute
-  pamixer -t && dunstify -i "/usr/share/icons/Adwaita/16x16/status/audio-volume-high-symbolic.symbolic.png" -r 2 `pamixer --get-volume-human`
+# # Brightness
+# XF86MonBrightnessUp
+#   light -A 10 && dunstify `light -G | cut -f1 -d '.'` -i "/usr/share/icons/Adwaita/16x16/status/display-brightness-symbolic.symbolic.png" -r 1
+# XF86MonBrightnessDown
+#   light -U 10 && dunstify `light -G | cut -f1 -d '.'` -i "/usr/share/icons/Adwaita/16x16/status/display-brightness-symbolic.symbolic.png" -r 1
+# 
+# # Audio
+# XF86AudioRaiseVolume
+#   pamixer -u --increase 5 && dunstify -i "/usr/share/icons/Adwaita/16x16/status/audio-volume-high-symbolic.symbolic.png" -r 2 `pamixer --get-volume-human`
+# XF86AudioLowerVolume
+#   pamixer --decrease 5 && dunstify -i "/usr/share/icons/Adwaita/16x16/status/audio-volume-high-symbolic.symbolic.png" -r 2 `pamixer --get-volume-human`
+# XF86AudioMute
+#   pamixer -t && dunstify -i "/usr/share/icons/Adwaita/16x16/status/audio-volume-high-symbolic.symbolic.png" -r 2 `pamixer --get-volume-human`
 
 # Mute microphone
 super + c
