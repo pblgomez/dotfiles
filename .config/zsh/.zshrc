@@ -9,7 +9,8 @@ function ssh () {
   /usr/bin/ssh -t $@ "tmux attach 2>/dev/null || \
   tmux new 2>/dev/null|| \
   /bin/zsh 2>/dev/null || \
-  /bin/bash";}
+  /bin/bash 2> /dev/null || \
+  /bin/ash";}
 
 ## Options section
 setopt correct                                                  # Auto correct mistakes
