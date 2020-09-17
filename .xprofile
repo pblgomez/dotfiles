@@ -7,15 +7,7 @@
 export QT_QPA_PLATFORMTHEME="qt5ct"
 
 # Default programs:
-web_broser=firefox
-  export BROWSER=
-  xdg-settings set default-web-browser $web_browser.desktop
-  export BROWSER=$web_browser
-export READER="zathura"
-export TERM=xterm-256color 
-source ~/.xsessionrc
-# export TERMINAL="alacritty"
-# export EDITOR="nvim"
+source $HOME/.xsessionrc
 
 # PATH envs
 export XDG_CACHE_HOME="$HOME/.cache"
@@ -42,7 +34,6 @@ kdeconnect-indicator &
 udiskie &
 unclutter &
 ~/.local/bin/touchpad-enable.sh &
-picom --experimental-backends --backend glx --blur-method dual_kawase --blur-strength 5 &
 redshift &
 autorandr -c &
 xrdb ~/.Xresources

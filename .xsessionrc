@@ -6,25 +6,27 @@
 
 
 # Default programs:
-export TERMINAL="alacritty"
-export EDITOR="nvim"
-
-# Envs
-[ -f ~/.ssh/envs ] && source ~/.ssh/envs
-
-
-# Default programs:
 web_broser=firefox
   export BROWSER=
   xdg-settings set default-web-browser $web_browser.desktop
   export BROWSER=$web_browser
+export TERMINAL="alacritty"
+export EDITOR="nvim"
+export READER="zathura"
 
+# Envs
+[ -f ~/.ssh/envs ] && source ~/.ssh/envs
 
 # PATHS
 export PATH=$PATH:~/.local/bin
 export PATH=$PATH:/opt/AppImage
 export PATH=$PATH:/snap/bin:/var/lib/snapd/snap/bin
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_DATA_HOME="$HOME/.local/share"
 # export XDG_CONFIG_HOME="~/.config"
+export LESSHISTFILE=-                           # less
+export VSCODE_PORTABLE="$XDG_DATA_HOME"/vscode  # VSCode
+export CARGO_HOME="$XDG_DATA_HOME"/cargo        # Rust / Cargo
 
 
 # Custom keyboard map

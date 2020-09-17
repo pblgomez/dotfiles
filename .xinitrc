@@ -6,9 +6,9 @@
 #QT appeareance, you have to install qt5ct and kvantum
 export QT_QPA_PLATFORMTHEME="qt5ct"
 
-# Default programs:
-export TERMINAL="alacritty"
-export EDITOR="nvim"
+# common between WM's and DE's
+source ~/.xsessionrc
+
 
 # apps at startup
 autorandr-launcher &
@@ -17,8 +17,6 @@ kdeconnect-indicator &
 udiskie &
 unclutter &
 ~/.local/bin/touchpad-enable.sh &
-picom &
-redshift &
 autorandr -c &
 xrdb ~/.Xresources
 /usr/lib/kdeconnectd &
@@ -40,7 +38,7 @@ fi
 
 # wallpaper
 if [ -f ~/.cache/bg ]; then
-  sleep 4; xwallpaper --zoom ~/.cache/bg &
+  sleep 1; xwallpaper --zoom ~/.cache/bg &
 else
   cp $(find $(pwd)/Pictures/Wallpaper -type f | sort -R |head -n1) ~/.cache/bg && convert -resize 1920 -blur 30x30 ~/.cache/bg ~/.cache/bg.png && xwallpaper --zoom ~/.cache/bg &
 fi
@@ -52,4 +50,5 @@ fi
 # desktop bspwm
 sxhkd -c $HOME/.config/sxhkd/bspwm $XDG_CONFIG_HOME/sxhkd/sxhkdrc &
 $HOME/.config/polybar/launch.sh
+picom &
 exec bspwm

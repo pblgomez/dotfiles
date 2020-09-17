@@ -2,8 +2,9 @@
 
 pgrep -x sxhkd > /dev/null || sxhkd &
 
-bspc monitor eDP1 -d I II III IV V
+bspc monitor eDP1 -n 0 -d I II III IV V
 bspc monitor HDMI2 -d VI VII VIII IX X
+bspc wm -O eDP1 HDMI2
 
 bspc config border_width         2
 bspc config window_gap           6
@@ -19,12 +20,11 @@ bspc rule -a mplayer2 state=floating
 bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
 
-bspc wm -O eDP1 HDMI2
-
 
 # wallpaper
-if [ -f ~/.cache/bg ]; then
-  sleep 4; xwallpaper --zoom ~/.cache/bg &
-else
-  cp $(find $(pwd)/Pictures/Wallpaper -type f | sort -R |head -n1) ~/.cache/bg && convert -resize 1920 -blur 30x30 ~/.cache/bg ~/.cache/bg.png && xwallpaper --zoom ~/.cache/bg &
-fi &
+# if [ -f ~/.cache/bg ]; then
+#   xwallpaper --zoom ~/.cache/bg &
+# else
+#   cp $(find $(pwd)/Pictures/Wallpaper -type f | sort -R |head -n1) ~/.cache/bg && convert -resize 1920 -blur 30x30 ~/.cache/bg ~/.cache/bg.png && xwallpaper --zoom ~/.cache/bg &
+# fi &
+
