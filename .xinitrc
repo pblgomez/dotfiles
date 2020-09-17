@@ -7,7 +7,7 @@
 export QT_QPA_PLATFORMTHEME="qt5ct"
 
 # Default programs:
-export TERMINAL="kitty"
+export TERMINAL="alacritty"
 export EDITOR="nvim"
 
 # apps at startup
@@ -17,22 +17,14 @@ kdeconnect-indicator &
 udiskie &
 unclutter &
 ~/.local/bin/touchpad-enable.sh &
-picom --experimental-backends --backend glx --blur-method dual_kawase --blur-strength 5 &
+picom &
 redshift &
 autorandr -c &
 xrdb ~/.Xresources
 /usr/lib/kdeconnectd &
 # optimus-manager-qt
 
-# wallpaper
-if [ -f ~/.cache/bg ]; then
-  sleep 4; xwallpaper --zoom ~/.cache/bg &
-else
-  cp $(find $(pwd)/Pictures/Wallpapers -type f | sort -R |head -n1) ~/.cache/bg && convert -resize 1920 -blur 30x30 ~/.cache/bg ~/.cache/bg.png && xwallpaper --zoom ~/.cache/bg &
-fi
-
 # xmodmap ~/.config/Xmodmap
-sxhkd &
 
 # Custom keyboard map
 #  xkbcomp $DISPLAY output.xkb  # To get current configuration
@@ -46,5 +38,18 @@ fi
 # For nVidia
 # /usr/bin/prime-offload &
 
-# desktop
-#exec i3
+# wallpaper
+if [ -f ~/.cache/bg ]; then
+  sleep 4; xwallpaper --zoom ~/.cache/bg &
+else
+  cp $(find $(pwd)/Pictures/Wallpaper -type f | sort -R |head -n1) ~/.cache/bg && convert -resize 1920 -blur 30x30 ~/.cache/bg ~/.cache/bg.png && xwallpaper --zoom ~/.cache/bg &
+fi
+
+# desktop i3
+# sxhkd &
+# exec i3
+
+# desktop bspwm
+sxhkd -c $HOME/.config/sxhkd/bspwm $XDG_CONFIG_HOME/sxhkd/sxhkdrc &
+$HOME/.config/polybar/launch.sh
+exec bspwm

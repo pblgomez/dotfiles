@@ -6,8 +6,7 @@
 
 
 # Default programs:
-# export TERMINAL="kitty"
-export TERMINAL="kitty"
+export TERMINAL="alacritty"
 export EDITOR="nvim"
 
 # Envs
