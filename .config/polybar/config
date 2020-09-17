@@ -74,6 +74,7 @@ font-2 = "Font Awesome 5 Free:style=Solid:pixelsize=8;1"
 font-3 = "Font Awesome 5 Brands:pixelsize=8;1"
 
 
+
 modules-left = bspwm i3
 modules-center = date
 modules-right = mic-muted filesystem !xbacklight !alsa !xkeyboard memory cpu battery temperature !powermenu !mpd eth wlan pulseaudio 
@@ -82,7 +83,7 @@ tray-position = right
 tray-padding = 2
 ;tray-background = #0063ff
 
-;wm-restack = bspwm
+wm-restack = bspwm
 ;wm-restack = i3
 
 ;override-redirect = true
@@ -130,20 +131,20 @@ label-mounted-underline = ${colors.color1}
 [module/bspwm]
 type = internal/bspwm
 
-label-focused = %index%
+label-focused = %name%
 label-focused-background = ${colors.background}
 label-focused-underline= ${colors.primary}
 label-focused-padding = 2
 
-label-occupied = %index%
+label-occupied = %name%
 label-occupied-padding = 2
 label-occupied-underline= ${colors.color2}
 
-label-urgent = %index%!
+label-urgent = %name%!
 label-urgent-background = ${colors.alert}
 label-urgent-padding = 2
 
-label-empty = %index%
+label-empty = %name%
 label-empty-foreground = ${colors.foreground-alt}
 label-empty-padding = 2
 
@@ -241,7 +242,7 @@ label = %percentage_used%%
 
 [module/wlan]
 type = internal/network
-interface = wlp2s0
+interface = wlan0
 interval = 3.0
 
 format-connected = <ramp-signal> <label-connected>
