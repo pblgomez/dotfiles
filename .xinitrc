@@ -1,29 +1,5 @@
 #!/bin/sh
 
-# xrandr --setprovideroutputsource modesetting NVIDIA-0
-# xrandr --auto
-
-#QT appeareance, you have to install qt5ct and kvantum
-export QT_QPA_PLATFORMTHEME="qt5ct"
-
-# common between WM's and DE's
-source ~/.xsessionrc
-
-
-# apps at startup
-autorandr-launcher &
-dunst &
-kdeconnect-indicator &
-udiskie &
-unclutter &
-~/.local/bin/touchpad-enable.sh &
-autorandr -c &
-xrdb ~/.Xresources
-/usr/lib/kdeconnectd &
-# optimus-manager-qt
-
-# xmodmap ~/.config/Xmodmap
-
 # Custom keyboard map
 #  xkbcomp $DISPLAY output.xkb  # To get current configuration
 #  now follow: https://wiki.archlinux.org/index.php/X_keyboard_extension#Caps_hjkl_as_vimlike_arrow_keys
@@ -36,15 +12,14 @@ fi
 # For nVidia
 # /usr/bin/prime-offload &
 
-# wallpaper
-if [ -f ~/.cache/bg ]; then
-  sleep 1; xwallpaper --zoom ~/.cache/bg &
-else
-  cp $(find $(pwd)/Pictures/Wallpaper -type f | sort -R |head -n1) ~/.cache/bg && convert -resize 1920 -blur 30x30 ~/.cache/bg ~/.cache/bg.png && xwallpaper --zoom ~/.cache/bg &
-fi
+## common between WM's and DE's
+[ -f ~/.xprofile ] && . ~/.xprofile
+[ -f ~/.xsessionrc ] && . ~/.xsessionrc
 
-# desktop i3
+## desktop i3
 # sxhkd &
+# $HOME/.config/polybar/launch.sh
+# picom &
 # exec i3
 
 # desktop bspwm

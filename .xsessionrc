@@ -10,9 +10,10 @@ web_broser=firefox
   export BROWSER=
   xdg-settings set default-web-browser $web_browser.desktop
   export BROWSER=$web_browser
-export TERMINAL="alacritty"
+export TERMINAL="kitty"
 export EDITOR="nvim"
 export READER="zathura"
+export FILEBROWSER="lf"
 
 # Envs
 [ -f ~/.ssh/envs ] && source ~/.ssh/envs
@@ -21,24 +22,10 @@ export READER="zathura"
 export PATH=$PATH:~/.local/bin
 export PATH=$PATH:/opt/AppImage
 export PATH=$PATH:/snap/bin:/var/lib/snapd/snap/bin
+export PATH="/var/lib/flatpak/exports/bin:$PATH"
+# XDG PATHS
 export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_DATA_HOME="$HOME/.local/share"
-# export XDG_CONFIG_HOME="~/.config"
 export LESSHISTFILE=-                           # less
 export VSCODE_PORTABLE="$XDG_DATA_HOME"/vscode  # VSCode
 export CARGO_HOME="$XDG_DATA_HOME"/cargo        # Rust / Cargo
-
-
-# Custom keyboard map
-#  xkbcomp $DISPLAY output.xkb  # To get current configuration
-#  now follow: https://wiki.archlinux.org/index.php/X_keyboard_extension#Caps_hjkl_as_vimlike_arrow_keys
-if [ -f $HOME/.config/pbl.xkb ]; then
-  xkbcomp $HOME/.config/pbl.xkb $DISPLAY
-else
-  setxkbmap us,es altgr-intl, -option grp:rctrl_rshift_toggle
-fi
-
-
-## Start up programs
-sxhkd &
-redshift &
