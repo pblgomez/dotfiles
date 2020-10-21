@@ -1,12 +1,27 @@
 #!/usr/bin/env bash
 
-pacmd set-card-profile 0 output:analog-stereo+input:analog-stereo
-notify-send "Laptop"
-killall picom; picom --experimental-backends --backend glx --blur-method dual_kawase --blur-strength 20
-
-# wallpaper
-if [ -f ~/.cache/bg ]; then
-  sleep 4; xwallpaper --zoom ~/.cache/bg &
+# Sound
+if [ "$(xrandr | grep -w connected | wc -l)" -gt "1" ]; then
+  pacmd set-card-profile 0 output:hdmi-stereo-extra1+input:analog-stereo
 else
-  cp $(find $(pwd)/Pictures/Wallpapers -type f | sort -R |head -n1) ~/.cache/bg && convert -resize 1920 -blur 30x30 ~/.cache/bg ~/.cache/bg.png && xwallpaper --zoom ~/.cache/bg &
+  pacmd set-card-profile 0 output:analog-stereo+input:analog-stereo
 fi
+
+notify-send "$(echo $(autorandr --current))"
+#killall picom; picom &
+killall -q picom                                                       
+while pgrep -x picom >/dev/null; do sleep 1; done
+picom -b --experimental-backends --backend glx --blur-method dual_kawase --blur-strength 10 &
+
+# # wallpaper
+# if [ -f ~/.cache/bg ]; then
+#   sleep 4; xwallpaper --zoom ~/.cache/bg &
+# else
+#   cp $(find $(pwd)/Pictures/Wallpapers -type f | sort -R |head -n1) ~/.cache/bg && convert -resize 1920 -blur 30x30 ~/.cache/bg ~/.cache/bg.png && xwallpaper --zoom ~/.cache/bg &
+# fi
+
+# bspwm
+bspc wm -r
+
+# Polybar
+$HOME/.config/polybar/launch.sh &

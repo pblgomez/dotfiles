@@ -5,11 +5,16 @@ notify-send "Docked"
 killall -q picom
 while pgrep -x picom >/dev/null; do sleep 1; done
 picom --experimental-backends --backend glx --blur-method dual_kawase --blur-strength 20 &
-$HOME/.config/polybar/launch.sh &
  
-# wallpaper
-if [ -f ~/.cache/bg ]; then
-  sleep 4; xwallpaper --zoom ~/.cache/bg &
-else
-  cp $(find $(pwd)/Pictures/Wallpapers -type f | sort -R |head -n1) ~/.cache/bg && convert -resize 1920 -blur 30x30 ~/.cache/bg ~/.cache/bg.png && xwallpaper --zoom ~/.cache/bg &
-fi
+ #wallpaper
+#if [ -f ~/.cache/bg ]; then
+  #sleep 4; xwallpaper --zoom ~/.cache/bg &
+#else
+  #cp $(find $(pwd)/Pictures/Wallpapers -type f | sort -R |head -n1) ~/.cache/bg && convert -resize 1920 -blur 30x30 ~/.cache/bg ~/.cache/bg.png && xwallpaper --zoom ~/.cache/bg &
+#fi
+
+# bspwm
+bspc wm -r
+
+# Polybar
+$HOME/.config/polybar/launch.sh &

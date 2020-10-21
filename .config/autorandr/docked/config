@@ -1,6 +1,8 @@
-output DP-1
+output DP1
 off
-output HDMI-1
+output HDMI1
+off
+output VIRTUAL1
 off
 output HDMI-2
 crtc 1
