@@ -19,11 +19,10 @@ fi
 ## desktop i3
 # sxhkd &
 # $HOME/.config/polybar/launch.sh
-# picom &
 # exec i3
 
 # desktop bspwm
-sxhkd -c $HOME/.config/sxhkd/bspwm $XDG_CONFIG_HOME/sxhkd/sxhkdrc &
-$HOME/.config/polybar/launch.sh
-picom &
+#sxhkd -c $HOME/.config/sxhkd/bspwm $XDG_CONFIG_HOME/sxhkd/sxhkdrc &
+#$HOME/.config/polybar/launch.sh &
+#picom -b --experimental-backends --backend glx --blur-method dual_kawase --blur-strength 10 &
 exec bspwm
