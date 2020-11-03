@@ -1,30 +1,42 @@
-#! /bin/sh
+#!/usr/bin/env bash
 
-pgrep -x sxhkd > /dev/null || sxhkd &
+## Get colors from .Xresources ------------------------------------------------#
+xrdb ~/.Xresources
 
-bspc monitor eDP1 -n 0 -d I II III IV V
-bspc monitor HDMI2 -d VI VII VIII IX X
-bspc wm -O eDP1 HDMI2
-
-bspc config border_width         2
-bspc config window_gap           6
+bspc config border_width         1
+bspc config window_gap           8
 
 bspc config split_ratio          0.60
 bspc config borderless_monocle   true
 bspc config gapless_monocle      true
 
+bspc config focus_follows_pointer true
+
 bspc rule -a Gimp desktop='^8' state=floating follow=on
 bspc rule -a firefox desktop='^2' follow=on
 bspc rule -a Chromium desktop='^2' follow=on
-bspc rule -a mplayer2 state=floating
+bspc rule -a Galculator state=floating
 bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
+bspc rule -a Zathura state=tiled
+bspc rule -a TelegramDesktop desktop='^5' follow=on
 
+bspc rule -a Alacritty:float state=floating follow=on focus=on
+bspc rule -a float:float state=floating follow=on focus=on
 
-# wallpaper
-# if [ -f ~/.cache/bg ]; then
-#   xwallpaper --zoom ~/.cache/bg &
-# else
-#   cp $(find $(pwd)/Pictures/Wallpaper -type f | sort -R |head -n1) ~/.cache/bg && convert -resize 1920 -blur 30x30 ~/.cache/bg ~/.cache/bg.png && xwallpaper --zoom ~/.cache/bg &
-# fi &
+pgrep -x sxhkd > /dev/null || sxhkd -c $HOME/.config/sxhkd/bspwm $HOME/.config/sxhkd/sxhkdrc &
 
+# Monitors
+if [ "$(xrandr | grep -w connected | wc -l)" -eq "2" ]; then
+  bspc wm --reorder-monitors eDP1 HDMI2
+  bspc wm --reorder-monitors eDP-1 HDMI-2
+  bspc wm --reorder-monitors eDP-1-1 HDMI-1-2
+  bspc monitor $(bspc query -M --names | sed -n 1p) -d 1 2 3 4 5
+  bspc monitor $(bspc query -M --names | sed -n 2p) -d 6 7 8 9 10
+  sleep 1
+elif [ "$(xrandr | grep -w connected | wc -l)" -eq "1" ]; then
+  bspc monitor HDMI2 --remove
+  bspc monitor $(xrandr| grep -i ' connected' | awk '{print $1}') -d 1 2 3 4 5 6 7 8 9 10
+fi
+
+# sxhkd -c $HOME/.config/sxhkd/bspwm $XDG_CONFIG_HOME/sxhkd/sxhkdrc &

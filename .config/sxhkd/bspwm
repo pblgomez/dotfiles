@@ -31,8 +31,10 @@ super + g
 #
 
 # set the window state
-super + {t,shift + t,s,f}
-	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
+super + {t,shift + t,s}
+	bspc node -t {tiled,pseudo_tiled,floating}
+super + f
+  bspc node -t \~fullscreen
 
 # set the node flags
 super + ctrl + {m,x,y,z}
@@ -51,7 +53,7 @@ super + {p,b,comma,period}
 	bspc node -f @{parent,brother,first,second}
 
 # focus the next/previous node in the current desktop
-super + {_,shift + }c
+alt + {_,shift + }Tab
 	bspc node -f {next,prev}.local
 
 # focus the next/previous desktop in the current monitor
@@ -82,7 +84,7 @@ super + ctrl + {h,j,k,l}
 
 # preselect the ratio
 super + ctrl + {1-9}
-	bspc node -o 0.{1-9}
+  bspc node -o 0.{1-9}
 
 # cancel the preselection for the focused node
 super + ctrl + space
@@ -108,6 +110,15 @@ super + alt + shift + {h,j,k,l}
 super + {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
 
+
+## SCRATCHPAD -----------------------------------------------------------------#
+# hide window
+super + v
+	bspc node -g hidden
+# unhide window
+super + shift + v
+	bspc node {,$(bspc query -N -n .hidden |tail -n 1)} -g hidden=off -d $(bspc query -D -d focused --names) -t floating -f
+#------------------------------------------------------------------------------#
 
 
 ############################################################
