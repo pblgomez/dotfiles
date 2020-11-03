@@ -9,3 +9,6 @@ if type "xrandr" > /dev/null; then
 else
   polybar pbl -c ~/.config/polybar/config &
 fi
+
+# Wallpaper
+feh --bg-fill $HOME/Pictures/Wallpaper/yg5CocJ\ -\ Imgur.jpg
