@@ -9,6 +9,7 @@ alias gc='git commit'
 alias gitu='git add . && git commit && git push'
 
 alias pacman='sudo pacman --color auto'
+alias update='yay -Syu --noconfirm && sudo snap refresh && sudo flatpak upgrade'
 
 alias cp='cp -i'
 
@@ -34,4 +35,5 @@ alias -s {yml,yaml}=$EDITOR
 # A global alias enables you to create an alias that is expanded anywhere in the command line, not just at the beginning.
 alias -g G='| grep -i'
 
+alias k="kubectl"
 alias tf='if ! hash terraform; then terraform-snap.terraform; fi'

@@ -4,13 +4,13 @@ export TERM=xterm-256color
 # For cache dir
 ZSH_CACHE_DIR="$HOME/.cache/zsh"
 
-# ssh with tmux
 function ssh () {
-  /usr/bin/ssh -t $@ "tmux attach 2>/dev/null || \
-  tmux new 2>/dev/null|| \
-  /bin/zsh 2>/dev/null || \
-  /bin/bash 2> /dev/null || \
-  /bin/ash";}
+  /usr/bin/ssh -t $@ "hash tmux 2>/dev/null && tmux attach 2>/dev/null || tmux new 2>/dev/null || \
+    hash zsh 2>/dev/null && zsh || \
+    hash bash 2>/dev/null && bash || \
+    hash ash 2>/dev/null && ash
+    "
+  ;}
 
 ## Options section
 setopt correct                                                  # Auto correct mistakes
@@ -35,6 +35,7 @@ zstyle ':completion:*' cache-path ~/.zsh/cache
 HISTFILE=$ZDOTDIR/zhistory
 HISTSIZE=1000
 SAVEHIST=500
+setopt HIST_IGNORE_SPACE
 export EDITOR=/usr/bin/nvim
 #export VISUAL=/usr/bin/nano
 WORDCHARS=${WORDCHARS//\/[&.;]}                                 # Don't consider certain characters part of the word
