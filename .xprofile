@@ -4,8 +4,15 @@
 # Read by ligthdm sddm, etc and sourced from xinit
 ############################################################
 
-# xrandr --setprovideroutputsource modesetting NVIDIA-0
 # xrandr --auto
+# Custom keyboard map
+#  xkbcomp $DISPLAY output.xkb  # To get current configuration
+#  now follow: https://wiki.archlinux.org/index.php/X_keyboard_extension#Caps_hjkl_as_vimlike_arrow_keys
+if [ -f $HOME/.config/pbl.xkb ]; then
+  xkbcomp $HOME/.config/pbl.xkb $DISPLAY
+else
+  setxkbmap us,es altgr-intl, -option grp:rctrl_rshift_toggle
+fi
 
 # wallpaper
 # if [ -f ~/.cache/bg ]; then
