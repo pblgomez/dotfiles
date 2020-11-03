@@ -1,14 +1,15 @@
-@namespace "http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul";
+/*css part of the prismatic night theme. visit https://github.com/dbuxy218/Prismatic-Night*/
+/*MANDATORY*/
+/*@import url("patches/tabs-custom.css");*/
+/*@import url("patches/nav-bar-custom.css");*/
+@import url("patches/tabs-below-nav-bar.css");
+/*@import url("patches/transition-color.css");*/
+/*OPTIONAL*/
+@import url("patches/tabs-below-content.css");
 
-/* hide url bar */
-#nav-bar { visibility: collapse; }
-
-/* Hide close button on tabs */
-#tabbrowser-tabs .tabbrowser-tab .tab-close-button { display:none !important; }
+/*USE ANY ONE at once*/
+/*@import url("patches/ctrl+l-access.css");*/
+@import url("patches/hover-access.css");
 
 
-#TabsToolbar, .tabbrowser-tab {
-  max-height: 26px !important;
-  font-size: 12px;
-}
-
+.tab-close-button {display:none !important;}

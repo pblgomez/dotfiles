@@ -1,0 +1,14 @@
+@namespace "http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul";
+
+/* hide url bar */
+#nav-bar { visibility: collapse; }
+
+/* Hide close button on tabs */
+#tabbrowser-tabs .tabbrowser-tab .tab-close-button { display:none !important; }
+
+
+#TabsToolbar, .tabbrowser-tab {
+  max-height: 26px !important;
+  font-size: 12px;
+}
+
