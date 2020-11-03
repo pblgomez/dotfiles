@@ -53,7 +53,7 @@ height = 22
 radius = 0.0
 fixed-center = true
 
-background = #bb2E3440
+background = ${colors.background}
 foreground = ${colors.foreground}
 
 line-size = 3
@@ -77,7 +77,7 @@ font-3 = "Font Awesome 5 Brands:pixelsize=8;1"
 
 modules-left = bspwm i3
 modules-center = date
-modules-right = mic-muted filesystem !xbacklight !alsa !xkeyboard memory cpu battery temperature !powermenu !mpd eth wlan pulseaudio 
+modules-right = bspwm-label mic-muted filesystem memory cpu battery temperature eth wlan pulseaudio 
 
 tray-position = right
 tray-padding = 2
@@ -150,6 +150,20 @@ label-empty-padding = 2
 
 ; Separator in between workspaces
 ; label-separator = |
+
+[module/bspwm-label]
+type = internal/bspwm
+format = <label-mode>
+format-padding = 1
+format-background = ${colors.color3}
+format-foreground = ${colors.color8}
+
+label-tiled = "Tiled"
+label-monocle = "Monocle"
+label-floating = "Floating"
+label-pseudotiled = "Pseudo"
+label-fullscreen = "Full"
+
 
 [module/i3]
 type = internal/i3
@@ -450,7 +464,9 @@ margin-bottom = 5
 
 [module/mic-muted]
 type = custom/script
-exec = amixer get Capture | grep off 1>/dev/null && echo "Mic OFF" || echo "Mic ON"
+;exec = amixer get Capture | grep off 1>/dev/null && echo "Mic OFF" || echo "Mic ON"
+; exec = amixer -c 1 -M -D pulse get Capture | grep -o '\[on\|off' | head -n1 | grep off 1>/dev/null && echo "Mic OFF" || echo "Mic ON"
+exec = amixer -M -D pulse get Capture | grep -o '\[on\|off' | head -n1 | grep off 1>/dev/null && echo "Mic OFF" || echo "Mic ON"
 interval = 1
 
 ; vim:ft=dosini
