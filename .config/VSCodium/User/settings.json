@@ -39,5 +39,6 @@
     "**/.git/subtree-cache/**": true,
     "**/.venv/*/**": true
   },
-  "update.mode": "none"
+  "update.mode": "none",
+  "editor.minimap.enabled": false
 }
