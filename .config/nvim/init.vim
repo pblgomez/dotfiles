@@ -21,7 +21,6 @@ set shiftwidth=2              " when indenting with '>', use 2 spaces width
 set path+=**
 set wildmenu
 set wildignore+=**/.venv/**
-set hidden
 
 " }}}
 
@@ -46,7 +45,7 @@ Plug 'Yggdroot/indentLine'
 Plug 'itchyny/lightline.vim'
 Plug 'vifm/vifm.vim'
 Plug 'arcticicestudio/nord-vim'
-"Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'hashivim/vim-terraform'
 " Plug 'arcticicestudio/nord-vim'
 call plug#end()
 
@@ -73,9 +72,15 @@ nnoremap <C-l> <C-W>l
 " Colors {{{
 
 colorscheme nord
-" colorscheme dracula
 let g:lightline = {
   \ 'colorscheme': 'nord',
+  \ 'tabline': {
+  \   'left': [ ['buffers'] ],
+  \ },
+  \ 'component_expand': {
+  \   'buffers': 'lightline#bufferline#buffers'
+  \ },
+  \ 'component_type': {
+  \   'buffers': 'tabsel'
   \ }
-
-" }}}
+  \ }
