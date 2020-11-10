@@ -98,6 +98,9 @@ input "1267:12395:ELAN2301:00_04F3:306B_Touchpad" {
     # Change Themes
     bindsym ctrl+alt+t exec ~/.local/bin/wofi_themes.sh
 
+    # Wifi 
+    bindsym ctrl+alt+w exec wofi-wifi-menu
+
     # Reload the configuration file
     bindsym $mod+Shift+c reload
 
@@ -257,7 +260,7 @@ bar {
 
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
-    status_command while date +'%Y-%m-%d %l:%M:%S %p'; do sleep 1; done
+    #status_command while date +'%Y-%m-%d %l:%M'; do sleep 1; done
     status_command i3status
 
     colors {
