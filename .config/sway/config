@@ -14,28 +14,35 @@ set $down j
 set $up k
 set $right l
 # Your preferred terminal emulator
-set $term alacritty
+set $term kitty
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu dmenu_path | dmenu | xargs swaymsg exec --
+#set $menu dmenu_path | dmenu | xargs swaymsg exec --
+set $menu dmenu_path | wofi --show run | xargs swaymsg exec --
+
+## Autostart
+exec ~/.local/bin/sway_touchpad_enabled.sh
+
 
 ## Windows configuration
 default_border pixel 2
-gaps inner 2
-gaps outer 2
+smart_borders on
+smart_gaps on
+gaps inner 8
+gaps outer 8
 
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+#output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+output * bg ~/.cache/bg fill
 #
 # Example configuration:
 #
 #   output HDMI-A-1 resolution 1920x1080 position 1920,0
 output eDP-1    pos 0 1080
 output HDMI-A-2 pos 0 0
-#
 # You can get the names of your outputs by running: swaymsg -t get_outputs
 
 ### Idle configuration
@@ -52,6 +59,9 @@ output HDMI-A-2 pos 0 0
 # resumed. It will also lock your screen before your computer goes to sleep.
 
 ### Input configuration
+input "1267:12395:ELAN2301:00_04F3:306B_Touchpad" {
+  tap enabled
+}
 #
 # Example configuration:
 #
@@ -84,6 +94,9 @@ output HDMI-A-2 pos 0 0
     # Change normal to inverse to use left mouse button for resizing and right
     # mouse button for dragging.
     floating_modifier $mod normal
+
+    # Change Themes
+    bindsym ctrl+alt+t exec ~/.local/bin/wofi_themes.sh
 
     # Reload the configuration file
     bindsym $mod+Shift+c reload
@@ -204,6 +217,38 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 #
+# Colors
+#
+set $fg #D8DEE9 
+set $bg #2E3440 
+
+set $color0 #000000 
+set $color1 #3B4252 
+set $color2 #434C5E 
+set $color3 #4C566A 
+set $color4 #D8DEE9 
+set $color5 #E5E9F0 
+set $color6 #ECEFF4 
+set $color7 #8FBCBB 
+set $color8 #88C0D0 
+set $color9 #81A1C1 
+set $color10 #5E81AC 
+set $color11 #BF616A 
+set $color12 #D08770 
+set $color13 #EBCB8B 
+set $color14 #A3BE8C 
+set $color15 #B48EAD 
+
+
+# class         border    backgr.   text      indicator child_border
+client.focused  $color15  $color14  $color13  $color12  $color10
+# Import theme first so invidual modifications can be made
+#include ~/.config/sway/themes/one-light
+
+
+
+
+#
 # Status Bar:
 #
 # Read `man 5 sway-bar` for more information about this section.
@@ -213,12 +258,15 @@ bar {
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
     status_command while date +'%Y-%m-%d %l:%M:%S %p'; do sleep 1; done
+    status_command i3status
 
     colors {
-        statusline #ffffff
-        background #323232
-        inactive_workspace #32323200 #32323200 #5c5c5c
-    }
-}
+        statusline $fg
+        background $bg
+      # class               border  backgr.   text
+        inactive_workspace $bg      $bg       $fg
+        focused_workspace  $fg      $color1   $color6
+     }
+ }
 
 include /etc/sway/config.d/*
