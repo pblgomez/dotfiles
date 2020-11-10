@@ -5,8 +5,8 @@
 # quit/restart bspwm
 super + alt + {q,r}
 	bspc {quit,wm -r}
-super + shift + q
-  dmenu_power_menu.sh
+ctrl + alt + s
+  shutdown_menu.sh
 
 
 # close and kill

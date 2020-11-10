@@ -13,9 +13,10 @@ super + Escape
 # super + @space
 # 	dmenu_run -nf '#D8DEE9' -nb '#2E3440' -sb '#88C0D0' -sf '#2E3440' -fn 'DejaVuSans-10'
 super + d
-	dmenu_run -nf '#D8DEE9' -nb '#2E3440' -sb '#88C0D0' -sf '#2E3440' -fn 'DejaVuSans-10'
+  rofi -show run
+#dmenu_run -nf '#D8DEE9' -nb '#2E3440' -sb '#88C0D0' -sf '#2E3440' -fn 'DejaVuSans-10'
 super + shift + d
-	j4-dmenu-desktop --dmenu="dmenu -nf '#D8DEE9' -nb '#2E3440' -sb '#88C0D0' -sf '#2E3440' -fn 'DejaVuSans-10'"
+  rofi -show ssh
 
 # Terminal emulator
 super + Return
@@ -28,6 +29,11 @@ ctrl + alt +t
 # Vifm
 ctrl + alt + m
   $TERMINAL -e $FILEBROWSER
+
+# Themes
+super + alt + t
+  ~/.local/bin/change_theme.sh
+
 
 # Joplin 
 ctrl + alt + j
@@ -52,7 +58,8 @@ ctrl + alt + s
 
 # clipmenu
 super + alt + c
-  clipmenu -nf '#D8DEE9' -nb '#2E3440' -sb '#88C0D0' -sf '#2E3440' -fn 'DejaVuSans-10'
+  rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'
+# clipmenu -nf '#D8DEE9' -nb '#2E3440' -sb '#88C0D0' -sf '#2E3440' -fn 'DejaVuSans-10'
 
 
 ############################################################

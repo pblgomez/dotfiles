@@ -22,7 +22,8 @@ set $term kitty
 set $menu dmenu_path | wofi --show run | xargs swaymsg exec --
 
 ## Autostart
-exec ~/.local/bin/sway_touchpad_enabled.sh
+exec ~/.local/bin/sway_touchpad_enabled.sh &
+exec mako &
 
 
 ## Windows configuration
@@ -84,6 +85,7 @@ input "1267:12395:ELAN2301:00_04F3:306B_Touchpad" {
 
     # Kill focused window
     bindsym $mod+Shift+q kill
+    bindsym $mod+q kill
 
     # Start your launcher
     bindsym $mod+d exec $menu
@@ -96,10 +98,26 @@ input "1267:12395:ELAN2301:00_04F3:306B_Touchpad" {
     floating_modifier $mod normal
 
     # Change Themes
-    bindsym ctrl+alt+t exec ~/.local/bin/wofi_themes.sh
+    bindsym $mod+alt+t exec ~/.local/bin/change_theme.sh
 
     # Wifi 
     bindsym ctrl+alt+w exec wofi-wifi-menu
+    
+    # Shutdown menu
+    bindsym ctrl+alt+s exec ~/.local/bin/shutdown_menu.sh
+
+    # Brightness
+    bindsym XF86MonBrightnessUp exec 'percent=9; \
+      brightnessctl s $((`brightnessctl m`*$percent/100))+; \
+      notify-send "Brightness: $((`brightnessctl g`*100/`brightnessctl m`)) "%'
+    bindsym XF86MonBrightnessDown exec 'percent=8; \
+      brightnessctl s $((`brightnessctl m`*$percent/100))-; \
+      notify-send "Brightness: $((`brightnessctl g`*100/`brightnessctl m`)) "%'
+
+    # Audio
+    bindsym XF86AudioRaiseVolume exec 'pactl set-sink-volume @DEFAULT_SINK@ +7%'
+    bindsym XF86AudioLowerVolume exec 'pactl set-sink-volume @DEFAULT_SINK@ -6%'
+    bindsym XF86AudioMute exec 'pactl set-source-mute @DEFAULT_SOURCE@ toggle'
 
     # Reload the configuration file
     bindsym $mod+Shift+c reload

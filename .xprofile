@@ -14,13 +14,6 @@ else
   setxkbmap us,es altgr-intl, -option grp:rctrl_rshift_toggle
 fi
 
-# wallpaper
-# if [ -f ~/.cache/bg ]; then
-#   sleep 4; xwallpaper --zoom ~/.cache/bg &
-# else
-#   cp $(find $(pwd)/Pictures/Wallpapers -type f | sort -R |head -n1) ~/.cache/bg && convert -resize 1920 -blur 30x30 ~/.cache/bg ~/.cache/bg.png && xwallpaper --zoom ~/.cache/bg &
-# fi
-
 #QT appeareance, you have to install qt5ct and kvantum
 export QT_QPA_PLATFORMTHEME="qt5ct"
 
