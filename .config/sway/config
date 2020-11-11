@@ -97,6 +97,9 @@ input "1267:12395:ELAN2301:00_04F3:306B_Touchpad" {
     # mouse button for dragging.
     floating_modifier $mod normal
 
+    # Clipboard
+    bindsym $mod+alt+c exec rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'
+
     # Change Themes
     bindsym $mod+alt+t exec ~/.local/bin/change_theme.sh
 
@@ -115,9 +118,13 @@ input "1267:12395:ELAN2301:00_04F3:306B_Touchpad" {
       notify-send "Brightness: $((`brightnessctl g`*100/`brightnessctl m`)) "%'
 
     # Audio
-    bindsym XF86AudioRaiseVolume exec 'pactl set-sink-volume @DEFAULT_SINK@ +7%'
-    bindsym XF86AudioLowerVolume exec 'pactl set-sink-volume @DEFAULT_SINK@ -6%'
+    bindsym XF86AudioRaiseVolume exec 'pactl set-sink-volume @DEFAULT_SINK@ +7%; \
+      notify-send "Volume: $(pulsemixer --get-volume | cut -d " " -f 1) "%'
+    bindsym XF86AudioLowerVolume exec 'pactl set-sink-volume @DEFAULT_SINK@ -6%; \
+      notify-send "Volume: $(pulsemixer --get-volume | cut -d " " -f 1) "%'
     bindsym XF86AudioMute exec 'pactl set-source-mute @DEFAULT_SOURCE@ toggle'
+    #bindsym $mod+alt+v exec 'pactl set-source-mute @DEFAULT_SOURCE@ toggle; notify-send  $((amixer -M -D pulse get Capture | grep -o "\[on\|off" | head -n1 | grep off 1>/dev/null && echo "Mic OFF" || echo "Mic ON" ))'
+    bindsym $mod+alt+v exec pactl set-source-mute @DEFAULT_SOURCE@ toggle && notify-send $(amixer -M -D pulse get Capture | grep -o '\[on\|off' | head -n1 | grep off 1>/dev/null && echo "Mic OFF" || echo "Mic ON" )
 
     # Reload the configuration file
     bindsym $mod+Shift+c reload
