@@ -4,10 +4,14 @@ alias vim=$EDITOR
 
 # alias vifm="$TERMINAL -e vifm"
 
+# GIT
 alias ga='git add .'
 alias gc='git commit'
 alias gitu='git add . && git commit && git push'
 alias gp='git push'
+alias gsb='git status -sb'
+alias gss='git status -s'
+alias gst='git status'
 
 alias pacman='sudo pacman --color auto'
 alias update='yay -Syu --noconfirm && sudo snap refresh && sudo flatpak upgrade'
