@@ -26,6 +26,10 @@ super + shift + Return
 ctrl + alt +t
 	$TERMINAL
 
+# Xkill
+super + shift + x
+  xkill
+
 # Vifm
 ctrl + alt + m
   $TERMINAL -e $FILEBROWSER

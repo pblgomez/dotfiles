@@ -12,9 +12,10 @@ alias gp='git push'
 alias gsb='git status -sb'
 alias gss='git status -s'
 alias gst='git status'
+alias gitwhatever='git add . && git commit -m "$(curl http://whatthecommit.com/index.txt)" && git push'
 
 alias pacman='sudo pacman --color auto'
-alias update='yay -Syu --noconfirm && sudo snap refresh && sudo flatpak upgrade'
+alias update='yay -Syu --noconfirm && sudo snap refresh && sudo flatpak upgrade -y'
 
 alias cp='cp -i'
 
