@@ -19,10 +19,10 @@ export FILEBROWSER="lf"
 [ -f ~/.ssh/envs ] && source ~/.ssh/envs
 
 # PATHS
-export PATH=$PATH:~/.local/bin
-export PATH=$PATH:/opt/AppImage
-export PATH=$PATH:/snap/bin:/var/lib/snapd/snap/bin
-export PATH="/var/lib/flatpak/exports/bin:$PATH"
+export PATH+=:~/.local/bin:~/.scripts
+export PATH+=:~/Applications
+export PATH+=:/snap/bin:/var/lib/snapd/snap/bin
+export PATH+=:/var/lib/flatpak/exports/bin
 # XDG PATHS
 export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_DATA_HOME="$HOME/.local/share"

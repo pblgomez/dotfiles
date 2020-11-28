@@ -13,6 +13,8 @@ alias gsb='git status -sb'
 alias gss='git status -s'
 alias gst='git status'
 alias gitwhatever='git add . && git commit -m "$(curl http://whatthecommit.com/index.txt)" && git push'
+alias gitmergewhatever='git merge -m "$(curl http://whatthecommit.com/index.txt)" && git push'
+alias yadmwhatever='yadm commit -m "$(curl http://whatthecommit.com/index.txt)" && yadm push'
 
 alias pacman='sudo pacman --color auto'
 alias update='yay -Syu --noconfirm && sudo snap refresh && sudo flatpak upgrade -y'

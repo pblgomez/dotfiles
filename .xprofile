@@ -54,7 +54,8 @@ redshift &
 autorandr -c &
 /usr/lib/kdeconnectd &
 xrdb -load ~/.config/X11/xresources &
-clipmenud &
+#clipmenud &
+greenclip daemon &
 kdeconnect-indicator &
 $HOME/.config/polybar/launch.sh &
 picom -b --experimental-backends --backend glx --blur-method dual_kawase --blur-strength 10 &
