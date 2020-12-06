@@ -3,7 +3,7 @@
 ## Get colors from .Xresources ------------------------------------------------#
 xrdb ~/.Xresources
 
-bspc config border_width         1
+bspc config border_width         2
 bspc config window_gap           8
 
 bspc config split_ratio          0.60
@@ -38,6 +38,12 @@ elif [ "$(xrandr | grep -w connected | wc -l)" -eq "1" ]; then
   bspc monitor HDMI2 --remove
   bspc monitor $(xrandr| grep -i ' connected' | awk '{print $1}') -d 1 2 3 4 5 6 7 8 9 10
 fi
+
+# Layout
+for n in {1..10}
+do
+  bsp-layout set tall $n
+done
 
 # Polybar
 ~/.config/polybar/launch.sh
