@@ -60,4 +60,4 @@ kdeconnect-indicator &
 $HOME/.config/polybar/launch.sh &
 picom -b --experimental-backends --backend glx --blur-method dual_kawase --blur-strength 10 &
 # sxhkd -c $HOME/.config/sxhkd/bspwm $XDG_CONFIG_HOME/sxhkd/sxhkdrc &
-# optimus-manager-qt
+optimus-manager-qt
