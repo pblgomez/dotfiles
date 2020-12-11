@@ -43,6 +43,7 @@ Plug 'ryanoasis/vim-devicons'                     " Icons for NerdTree
 Plug 'ap/vim-css-color'
 Plug 'Yggdroot/indentLine'
 Plug 'itchyny/lightline.vim'
+Plug 'mengelbrecht/lightline-bufferline'
 Plug 'vifm/vifm.vim'
 Plug 'arcticicestudio/nord-vim'
 Plug 'hashivim/vim-terraform'
@@ -73,14 +74,14 @@ nnoremap <C-l> <C-W>l
 
 colorscheme nord
 let g:lightline = {
-  \ 'colorscheme': 'nord',
-  \ 'tabline': {
-  \   'left': [ ['buffers'] ],
-  \ },
-  \ 'component_expand': {
-  \   'buffers': 'lightline#bufferline#buffers'
-  \ },
-  \ 'component_type': {
-  \   'buffers': 'tabsel'
-  \ }
-  \ }
+      \ 'colorscheme': 'nord',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ], [ 'buffers', 'readonly', 'modified' ] ]
+      \ },
+      \ 'component_expand': {
+      \   'buffers': 'lightline#bufferline#buffers'
+      \ },
+      \ 'component_type': {
+      \   'buffers': 'tabsel'
+      \ }
+      \ }
