@@ -1,6 +1,9 @@
 # for compatibility reasons
 export TERM=xterm-256color
 
+#XDG Base Directories
+export XINITRC="$XDG_CONFIG_HOME"/X11/xinitrc
+
 # For cache dir
 ZSH_CACHE_DIR="$HOME/.cache/zsh"
 
