@@ -357,3 +357,4 @@ for_window [class="Spotify"] move to workspace 10
 #################                              Start up apps                                        #################
 #####################################################################################################################
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+exec_always --no-startup-id source $HOME/.config/X11/xinitrc
