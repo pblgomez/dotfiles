@@ -291,8 +291,8 @@ bindsym $mod+z exec ~/.local/bin/i3-display-swap.sh
 
 
 #Press $mod (super) and X to exit - check toolbar for next choices
-bindsym $mod+X mode "$mode_system"
-bindsym control+mod1+Delete mode "$mode_system"
+bindsym control+$mod1+Delete mode "$mode_system"
+bindsym $mod+x mode "$mode_system"
 
 set $mode_system (k) lock, (l) logout, (u) suspend, (r) reboot, (s) shutdown
 mode "$mode_system" {

@@ -68,12 +68,18 @@ nnoremap <C-j> <C-W>j
 nnoremap <C-k> <C-W>k
 nnoremap <C-l> <C-W>l
 
+"" execute own file
+nnoremap <leader>x :!%:p
+
 "" Toggle numbers
 nnoremap <leader>n :set number! \| set relativenumber!<CR>
 
 "" Templates
 nnoremap ,sh gg :read $HOME/.config/nvim/templates/sh<CR>kdd7jA
 nnoremap ,html :read $HOME/.config/nvim/templates/html<CR>kdd6jf>a
+
+"" Macros
+let @l='o#-------------------------------------------------------------------------------'
 
 " }}}
 
