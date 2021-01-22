@@ -1,12 +1,12 @@
-#!/bin/sh
+#!/usr/bin/env sh
 
 ## common between WM's and DE's
 [ -f ~/.xprofile ] && . ~/.xprofile
 [ -f ~/.xsessionrc ] && . ~/.xsessionrc
 
 ## desktop i3
-sxhkd -c $HOME/.config/sxhkd/bspwm $XDG_CONFIG_HOME/sxhkd/sxhkdrc &
-$HOME/.config/polybar/launch.sh
+sxhkd -c "$HOME"/.config/sxhkd/bspwm "$XDG_CONFIG_HOME"/sxhkd/sxhkdrc &
+"$HOME"/.config/polybar/launch.sh
 exec i3
 
 # desktop bspwm

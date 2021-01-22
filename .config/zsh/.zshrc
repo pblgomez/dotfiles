@@ -2,6 +2,7 @@
 export TERM=xterm-256color
 
 #XDG Base Directories
+export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority
 export XINITRC="$XDG_CONFIG_HOME"/X11/xinitrc
 export VAGRANT_HOME="XDG_CONFIG_HOME/.vagrant.d"
 
@@ -36,7 +37,7 @@ zstyle ':completion:*' rehash true                              # automatically 
 zstyle ':completion:*' accept-exact '*(N)'
 zstyle ':completion:*' use-cache on
 zstyle ':completion:*' cache-path ~/.zsh/cache
-HISTFILE=$ZDOTDIR/zhistory
+HISTFILE="$ZDOTDIR"/zhistory
 HISTSIZE=1000
 SAVEHIST=500
 setopt HIST_IGNORE_SPACE
@@ -46,10 +47,11 @@ WORDCHARS=${WORDCHARS//\/[&.;]}                                 # Don't consider
 
 
 ## Keybindings section
-bindkey -v
+#bindkey -v
+set -o vi
 
 ## Alias section 
-source $ZDOTDIR/zsh_aliases
+source "$ZDOTDIR"/zsh_aliases
 
 # Theming section  
 autoload -U compinit colors zcalc

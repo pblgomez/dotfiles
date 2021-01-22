@@ -41,6 +41,7 @@ xdg-mime default org.pwmt.zathura.desktop application/pdf
 [ -f ~/.xsessionrc ] && . ~/.xsessionrc
 
 # apps at startup
+lxsession &
 xss-lock -n /usr/lib/xsecurelock/dimmer -l -- xsecurelock &
 xidlehook --not-when-fullscreen --not-when-audio --timer 1200 "systemctl suspend" - &
 blueman-applet &
