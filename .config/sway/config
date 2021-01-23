@@ -60,9 +60,15 @@ output HDMI-A-2 pos 0 0
 # resumed. It will also lock your screen before your computer goes to sleep.
 
 ### Input configuration
+input * {
+  xkb_layout "us"
+  xkb_variant "altgr-intl"
+  xkb_options "grp:rctrl_rshift_toggle"
+  }
 input "1267:12395:ELAN2301:00_04F3:306B_Touchpad" {
   tap enabled
 }
+
 #
 # Example configuration:
 #
