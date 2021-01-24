@@ -22,6 +22,7 @@ set $term kitty
 set $menu dmenu_path | wofi --show run | xargs swaymsg exec --
 
 ## Autostart
+lxsession &
 exec ~/.local/bin/sway_touchpad_enabled.sh &
 exec mako &
 
@@ -67,6 +68,7 @@ input * {
   }
 input "1267:12395:ELAN2301:00_04F3:306B_Touchpad" {
   tap enabled
+  middle_emulation enabled
 }
 
 #

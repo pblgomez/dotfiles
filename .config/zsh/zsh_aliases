@@ -4,6 +4,16 @@ alias vim=$EDITOR
 
 # alias vifm="$TERMINAL -e vifm"
 
+alias cat="bat"
+
+alias ss="sudo systemctl"
+
+# exa
+alias l="exa"
+alias ls="exa"
+alias ll="exa -l"
+alias la="exa -la"
+
 # GIT
 alias ga='git add .'
 alias gc='git commit'
@@ -22,13 +32,6 @@ alias update='yay -Syu --noconfirm && sudo snap refresh && sudo flatpak upgrade 
 alias cp='cp -i'
 
 alias free='free -m'                                            # Show sizes in MB
-
-alias l=ls
-alias l.='ls -A | egrep '\''^\.'\'
-alias la='ls -A'
-alias ll='ls -la'
-alias ls='ls --color=auto'
-alias lsa='ls -lah'
 
 alias df='df -hT --exclude=tmpfs --exclude=squashfs --exclude=devtmpfs'
 
