@@ -22,7 +22,7 @@ set $term kitty
 set $menu dmenu_path | wofi --show run | xargs swaymsg exec --
 
 ## Autostart
-lxsession &
+exec lxsession &
 exec ~/.local/bin/sway_touchpad_enabled.sh &
 exec mako &
 
