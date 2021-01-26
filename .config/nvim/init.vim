@@ -1,6 +1,5 @@
 " Settings {{{
 
-set nocompatible              " be iMproved, required
 syntax enable                 " enable syntax
 set number relativenumber     " Set numbers on the left side
 set spelllang=en_us,es_es     " Spell
@@ -31,7 +30,9 @@ filetype plugin on            " enable plugins
 if empty(glob('~/.config/nvim/autoload/plug.vim'))
   silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+  augroup plugvim
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+  augroup END
 endif
 
 call plug#begin()
