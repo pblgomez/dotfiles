@@ -20,7 +20,6 @@ export FILEBROWSER="lf"
 
 # PATHS
 export PATH=$PATH:~/.local/bin:~/.scripts
-export PATH=$PATH:~/Applications
 export PATH=$PATH:/snap/bin:/var/lib/snapd/snap/bin
 export PATH=$PATH:/var/lib/flatpak/exports/bin
 # XDG PATHS

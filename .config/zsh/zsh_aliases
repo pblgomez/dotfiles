@@ -27,7 +27,7 @@ alias gitmergewhatever='git merge -m "$(curl http://whatthecommit.com/index.txt)
 alias yadmwhatever='yadm commit -m "$(curl http://whatthecommit.com/index.txt)" && yadm push'
 
 alias pacman='sudo pacman --color auto'
-alias update='yay -Syu --noconfirm && sudo snap refresh && sudo flatpak upgrade -y'
+alias update='paru -Syu --upgrademenu --combinedupgrade --noconfirm && sudo snap refresh && sudo flatpak upgrade -y'
 
 alias cp='cp -i'
 
