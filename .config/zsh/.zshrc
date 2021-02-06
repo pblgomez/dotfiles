@@ -12,6 +12,9 @@ export PATH=$PATH:~/Applications:/opt/appimages
 # Ruby
 export GEM_HOME="$(ruby -e 'puts Gem.user_dir')"
 export PATH="$PATH:$GEM_HOME/bin"
+# scripts
+export PATH=$PATH:~/Applications:/opt/appimages
+export PATH=$PATH:~/.scripts:~/.local/bin
 
 # For cache dir
 ZSH_CACHE_DIR="$HOME/.cache/zsh"
@@ -190,6 +193,7 @@ fi
 # Start graphical server on tty1 if not already running.
 command -v sway >/dev/null && [ "$(tty)" = "/dev/tty1" ] && [ -z $DISPLAY ] && exec sway 
 [ "$(tty)" = "/dev/tty1" ] && ! pgrep -x Xorg >/dev/null && exec startx
+[ "$(tty)" = "/dev/tty2" ] && ! pgrep -x Xorg >/dev/null && exec nvidia-xrun i3
 #[ "$(tty)" = "/dev/tty1" ] && ! pgrep -x Xorg >/dev/null && exec startx
 
 

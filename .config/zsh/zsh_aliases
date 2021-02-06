@@ -27,7 +27,7 @@ alias gitmergewhatever='git merge -m "$(curl http://whatthecommit.com/index.txt)
 alias yadmwhatever='yadm commit -m "$(curl http://whatthecommit.com/index.txt)" && yadm push'
 
 alias pacman='sudo pacman --color auto'
-alias update='paru -Syu --noconfirm && sudo snap refresh && sudo flatpak upgrade -y'
+alias update='paru -Syu --upgrademenu --combinedupgrade --noconfirm && sudo snap refresh && sudo flatpak upgrade -y'
 
 alias cp='cp -i'
 
@@ -47,4 +47,6 @@ alias -s {yml,yaml}=$EDITOR
 alias -g G='| grep -i'
 
 alias k="kubectl"
-alias tf='if ! hash terraform; then terraform-snap.terraform; fi'
+function tf {
+  if ! hash terraform; then terraform-snap.terraform $@; else; terraform $@; fi
+}
