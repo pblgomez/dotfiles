@@ -73,7 +73,7 @@ nnoremap <C-l> <C-W>l
 nnoremap <leader>x :!%:p
 
 "" Toggle numbers
-nnoremap <leader>n :set number! \| set relativenumber!<CR>
+nnoremap <leader>n :set number! \| set relativenumber! \|<Esc>:IndentLinesToggle<CR>
 
 "" Templates
 nnoremap ,sh gg :read $HOME/.config/nvim/templates/sh<CR>kdd7jA
