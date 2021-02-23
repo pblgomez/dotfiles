@@ -40,5 +40,9 @@
     "**/.venv/*/**": true
   },
   "update.mode": "none",
-  "editor.minimap.enabled": false
+  "editor.minimap.enabled": false,
+  "python.showStartPage": false,
+  "editor.rulers": [
+  80
+  ]
 }

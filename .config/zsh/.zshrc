@@ -19,13 +19,13 @@ export PATH=$PATH:~/.scripts:~/.local/bin
 # For cache dir
 ZSH_CACHE_DIR="$HOME/.cache/zsh"
 
-function ssh () {
-  /usr/bin/ssh -t $@ "hash tmux 2>/dev/null && tmux attach 2>/dev/null || tmux new 2>/dev/null || \
-    hash zsh 2>/dev/null && zsh || \
-    hash bash 2>/dev/null && bash || \
-    hash ash 2>/dev/null && ash
-    "
-  ;}
+#function ssh () {
+  #/usr/bin/ssh -t $@ "hash tmux 2>/dev/null && tmux attach 2>/dev/null || tmux new 2>/dev/null || \
+    #hash zsh 2>/dev/null && zsh || \
+    #hash bash 2>/dev/null && bash || \
+    #hash ash 2>/dev/null && ash
+    #"
+  #;}
 
 ## Options section
 setopt correct                                                  # Auto correct mistakes
