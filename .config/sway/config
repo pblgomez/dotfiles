@@ -27,6 +27,7 @@ exec waybind &
 exec ~/.local/bin/sway_touchpad_enabled.sh &
 exec redshift -m wayland &
 exec mako &
+exec nm-applet &
 
 
 ## Windows configuration
@@ -293,20 +294,21 @@ client.focused  $color15  $color14  $color13  $color12  $color10
 #
 # Read `man 5 sway-bar` for more information about this section.
 bar {
-    position top
+    swaybar_command waybar
+    #position top
 
-    # When the status_command prints a new line to stdout, swaybar updates.
-    # The default just shows the current date and time.
-    #status_command while date +'%Y-%m-%d %l:%M'; do sleep 1; done
-    status_command i3status
+    ## When the status_command prints a new line to stdout, swaybar updates.
+    ## The default just shows the current date and time.
+    ##status_command while date +'%Y-%m-%d %l:%M'; do sleep 1; done
+    #status_command i3status
 
-    colors {
-        statusline $fg
-        background $bg
-      # class               border  backgr.   text
-        inactive_workspace $bg      $bg       $fg
-        focused_workspace  $fg      $color1   $color6
-     }
+    #colors {
+        #statusline $fg
+        #background $bg
+      ## class               border  backgr.   text
+        #inactive_workspace $bg      $bg       $fg
+        #focused_workspace  $fg      $color1   $color6
+     #}
  }
 
 include /etc/sway/config.d/*
