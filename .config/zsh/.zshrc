@@ -196,7 +196,11 @@ command -v sway >/dev/null && [ "$(tty)" = "/dev/tty1" ] && [ -z $DISPLAY ] && e
 [ "$(tty)" = "/dev/tty2" ] && ! pgrep -x Xorg >/dev/null && exec nvidia-xrun i3
 #[ "$(tty)" = "/dev/tty1" ] && ! pgrep -x Xorg >/dev/null && exec startx
 
-
+# zsh pure theme
 fpath+="$ZDOTDIR"/pure
 autoload -U promptinit; promptinit
 prompt pure
+
+# kubie prompt ( depends on kube-ps1 package )
+source /opt/kube-ps1/kube-ps1.sh
+PROMPT='$(kube_ps1)'$PROMPT

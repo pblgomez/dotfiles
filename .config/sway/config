@@ -27,7 +27,7 @@ exec waybind &
 exec ~/.local/bin/sway_touchpad_enabled.sh &
 exec redshift -m wayland &
 exec mako &
-exec nm-applet &
+exec nm-applet --indicator &
 
 
 ## Windows configuration
