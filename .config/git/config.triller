@@ -1,5 +1,0 @@
-[user]
-  email = "youremail@triller.co"
-[core]
-  # sshCommand = "ssh -i ~/.ssh/github-triller/id_rsa"
-  sshCommand = "ssh -i ~/.ssh/id_ed25519
