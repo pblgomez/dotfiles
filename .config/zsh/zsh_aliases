@@ -18,10 +18,12 @@ alias la="exa -la"
 alias ga='git add .'
 alias gc='git commit'
 alias gitu='git add . && git commit && git push'
+alias gpl='git pull'
 alias gp='git push'
 alias gsb='git status -sb'
 alias gss='git status -s'
 alias gst='git status'
+alias clone='git clone'
 alias gitwhatever='git add . && git commit -m "$(curl http://whatthecommit.com/index.txt)" && git push'
 alias gitmergewhatever='git merge -m "$(curl http://whatthecommit.com/index.txt)" && git push'
 alias yadmwhatever='yadm commit -m "$(curl http://whatthecommit.com/index.txt)" && yadm push'
@@ -50,3 +52,7 @@ alias k="kubectl"
 function tf {
   if ! hash terraform; then terraform-snap.terraform $@; else; terraform $@; fi
 }
+
+
+# Folders
+alias Triller='cd ~/Documents/Triller'

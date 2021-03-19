@@ -38,6 +38,7 @@ endif
 call plug#begin()
 Plug 'neoclide/coc.nvim', {'branch': 'release'}   " For completion
 Plug 'ptzz/lf.vim'                                " For lf File Manager
+Plug 'voldikss/vim-floaterm'                        "Required for lf"
 Plug 'rbgrouleff/bclose.vim'                      " For lf File Manager
 Plug 'scrooloose/nerdcommenter'                   " Commenter with Ctrl+P
 Plug 'ryanoasis/vim-devicons'                     " Icons for NerdTree

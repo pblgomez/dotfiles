@@ -6,7 +6,7 @@
 
 ## desktop i3
 sxhkd -c "$HOME"/.config/sxhkd/bspwm "$XDG_CONFIG_HOME"/sxhkd/sxhkdrc &
-"$HOME"/.config/polybar/launch.sh
+"$HOME"/.config/polybar/launch.sh &
 exec i3
 
 # desktop bspwm

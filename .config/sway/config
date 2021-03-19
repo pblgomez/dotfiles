@@ -23,12 +23,11 @@ set $menu dmenu_path | wofi --show run | xargs swaymsg exec --
 
 ## Autostart
 exec lxsession &
-exec waybind &
 exec ~/.local/bin/sway_touchpad_enabled.sh &
 exec redshift -m wayland &
 exec mako &
 exec nm-applet --indicator &
-
+exec $HOME/.config/sway/set-waybind-kdb.sh &
 
 ## Windows configuration
 default_border pixel 2
