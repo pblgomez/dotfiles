@@ -23,6 +23,7 @@ alias gp='git push'
 alias gsb='git status -sb'
 alias gss='git status -s'
 alias gst='git status'
+alias gitdefault='git remote show origin | grep "HEAD branch" | cut -d ":" -f 2 | xargs git checkout'
 alias clone='git clone'
 alias gitwhatever='git add . && git commit -m "$(curl http://whatthecommit.com/index.txt)" && git push'
 alias gitmergewhatever='git merge -m "$(curl http://whatthecommit.com/index.txt)" && git push'
@@ -52,7 +53,8 @@ alias k="kubectl"
 function tf {
   if ! hash terraform; then terraform-snap.terraform $@; else; terraform $@; fi
 }
-
+alias tfinit="cat README.md -p | grep 'terraform init' | awk -F '\`' '{print \$2}' | bash"
+alias tfplandev='terraform plan -var-file=develop.tfvars -var-file=encrypted_develop.tfvars'
 
 # Folders
 alias Triller='cd ~/Documents/Triller'

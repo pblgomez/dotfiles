@@ -1,3 +1,6 @@
+# ENVS
+source ~/.gnupg/triller/triller.envs
+
 # for compatibility reasons
 export TERM=xterm-256color
 

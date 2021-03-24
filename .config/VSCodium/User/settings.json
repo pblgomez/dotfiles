@@ -44,5 +44,11 @@
   "python.showStartPage": false,
   "editor.rulers": [
   80
+  ],
+  "workbench.editorAssociations": [
+    {
+      "viewType": "jupyter.notebook.ipynb",
+      "filenamePattern": "*.ipynb"
+    }
   ]
 }
