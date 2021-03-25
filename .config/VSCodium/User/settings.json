@@ -50,5 +50,6 @@
       "viewType": "jupyter.notebook.ipynb",
       "filenamePattern": "*.ipynb"
     }
-  ]
+  ],
+  "diffEditor.ignoreTrimWhitespace": false
 }
