@@ -56,5 +56,3 @@ function tf {
 alias tfinit="cat README.md -p | grep 'terraform init' | awk -F '\`' '{print \$2}' | bash"
 alias tfplandev='terraform plan -var-file=develop.tfvars -var-file=encrypted_develop.tfvars'
 
-# Folders
-alias Triller='cd ~/Documents/Triller'

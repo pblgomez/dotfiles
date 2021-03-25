@@ -5,9 +5,11 @@ source ~/.gnupg/triller/triller.envs
 export TERM=xterm-256color
 
 #XDG Base Directories
-export XAUTHORITY="$XDG_CACHE_HOME"/Xauthority
-export XINITRC="$XDG_CONFIG_HOME"/X11/xinitrc
+export CARGO_HOME="$XDG_DATA_HOME"/cargo        # Rust / Cargo
 export VAGRANT_HOME="XDG_CONFIG_HOME/.vagrant.d"
+export XINITRC="$XDG_CONFIG_HOME"/X11/xinitrc
+export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority
+export XINITRC="$XDG_CONFIG_HOME"/X11/xinitrc
 
 # PATH
 ## for AppImages
@@ -21,14 +23,6 @@ export PATH=$PATH:~/.scripts:~/.local/bin
 
 # For cache dir
 ZSH_CACHE_DIR="$HOME/.cache/zsh"
-
-#function ssh () {
-  #/usr/bin/ssh -t $@ "hash tmux 2>/dev/null && tmux attach 2>/dev/null || tmux new 2>/dev/null || \
-    #hash zsh 2>/dev/null && zsh || \
-    #hash bash 2>/dev/null && bash || \
-    #hash ash 2>/dev/null && ash
-    #"
-  #;}
 
 ## Options section
 setopt correct                                                  # Auto correct mistakes
