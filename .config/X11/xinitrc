@@ -22,6 +22,7 @@ while xsetroot -name "$(date +"%a - %d/%m - %H:%M")"
 do
 	sleep 1
 done &
+sxhkd -c $HOME/.config/sxhkd/sxhkdrc &
 ~/.config/suckless/dwm/startdwm.sh
 ~/.scripts/touchpad-enable.sh &
 exec dwm
