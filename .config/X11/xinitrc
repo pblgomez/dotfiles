@@ -25,5 +25,5 @@ done &
 sxhkd -c $HOME/.config/sxhkd/sxhkdrc &
 ~/.config/suckless/dwm/startdwm.sh
 ~/.scripts/touchpad-enable.sh &
-exec dwm
+~/.config/suckless/dwm/dwm_start.sh
 
