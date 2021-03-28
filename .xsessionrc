@@ -28,4 +28,3 @@ export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_DATA_HOME=$XDG_DATA_HOME:/var/lib/flatpak/exports/share
 export LESSHISTFILE=-                           # less
 export VSCODE_PORTABLE="$XDG_DATA_HOME"/vscode  # VSCode
-export CARGO_HOME="$XDG_DATA_HOME"/cargo        # Rust / Cargo

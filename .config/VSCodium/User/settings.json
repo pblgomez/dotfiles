@@ -40,5 +40,16 @@
     "**/.venv/*/**": true
   },
   "update.mode": "none",
-  "editor.minimap.enabled": false
+  "editor.minimap.enabled": false,
+  "python.showStartPage": false,
+  "editor.rulers": [
+    160
+  ],
+  "workbench.editorAssociations": [
+    {
+      "viewType": "jupyter.notebook.ipynb",
+      "filenamePattern": "*.ipynb"
+    }
+  ],
+  "diffEditor.ignoreTrimWhitespace": false
 }

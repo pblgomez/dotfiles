@@ -13,6 +13,7 @@ set tabstop=2                 " show existing tab with 2 spaces width
 set softtabstop=2
 set shiftwidth=2              " when indenting with '>', use 2 spaces width
 
+set autoread                  " Auto reload when it detects changes on disk
 " }}}
 
 " File Find {{{
@@ -38,6 +39,7 @@ endif
 call plug#begin()
 Plug 'neoclide/coc.nvim', {'branch': 'release'}   " For completion
 Plug 'ptzz/lf.vim'                                " For lf File Manager
+Plug 'voldikss/vim-floaterm'                        "Required for lf"
 Plug 'rbgrouleff/bclose.vim'                      " For lf File Manager
 Plug 'scrooloose/nerdcommenter'                   " Commenter with Ctrl+P
 Plug 'ryanoasis/vim-devicons'                     " Icons for NerdTree
@@ -73,7 +75,7 @@ nnoremap <C-l> <C-W>l
 nnoremap <leader>x :!%:p
 
 "" Toggle numbers
-nnoremap <leader>n :set number! \| set relativenumber!<CR>
+nnoremap <leader>n :set number! \| set relativenumber! \|<Esc>:IndentLinesToggle<CR>
 
 "" Templates
 nnoremap ,sh gg :read $HOME/.config/nvim/templates/sh<CR>kdd7jA

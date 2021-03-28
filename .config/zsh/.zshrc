@@ -1,10 +1,15 @@
+# ENVS
+source ~/.gnupg/triller/triller.envs
+
 # for compatibility reasons
 export TERM=xterm-256color
 
 #XDG Base Directories
-export XAUTHORITY="$XDG_CACHE_HOME"/Xauthority
-export XINITRC="$XDG_CONFIG_HOME"/X11/xinitrc
+export CARGO_HOME="$XDG_DATA_HOME"/cargo        # Rust / Cargo
 export VAGRANT_HOME="XDG_CONFIG_HOME/.vagrant.d"
+export XINITRC="$XDG_CONFIG_HOME"/X11/xinitrc
+export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority
+export XINITRC="$XDG_CONFIG_HOME"/X11/xinitrc
 
 # PATH
 ## for AppImages
@@ -12,17 +17,12 @@ export PATH=$PATH:~/Applications:/opt/appimages
 # Ruby
 export GEM_HOME="$(ruby -e 'puts Gem.user_dir')"
 export PATH="$PATH:$GEM_HOME/bin"
+# scripts
+export PATH=$PATH:~/Applications:/opt/appimages
+export PATH=$PATH:~/.scripts:~/.local/bin
 
 # For cache dir
 ZSH_CACHE_DIR="$HOME/.cache/zsh"
-
-function ssh () {
-  /usr/bin/ssh -t $@ "hash tmux 2>/dev/null && tmux attach 2>/dev/null || tmux new 2>/dev/null || \
-    hash zsh 2>/dev/null && zsh || \
-    hash bash 2>/dev/null && bash || \
-    hash ash 2>/dev/null && ash
-    "
-  ;}
 
 ## Options section
 setopt correct                                                  # Auto correct mistakes
@@ -193,7 +193,11 @@ command -v sway >/dev/null && [ "$(tty)" = "/dev/tty1" ] && [ -z $DISPLAY ] && e
 [ "$(tty)" = "/dev/tty2" ] && ! pgrep -x Xorg >/dev/null && exec nvidia-xrun i3
 #[ "$(tty)" = "/dev/tty1" ] && ! pgrep -x Xorg >/dev/null && exec startx
 
-
+# zsh pure theme
 fpath+="$ZDOTDIR"/pure
 autoload -U promptinit; promptinit
 prompt pure
+
+# kubie prompt ( depends on kube-ps1 package )
+source /opt/kube-ps1/kube-ps1.sh
+PROMPT='$(kube_ps1)'$PROMPT
