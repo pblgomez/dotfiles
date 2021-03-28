@@ -14,10 +14,10 @@ export XINITRC="$XDG_CONFIG_HOME"/X11/xinitrc
 # PATH
 ## for AppImages
 export PATH=$PATH:~/Applications:/opt/appimages
-# Ruby
+## Ruby
 export GEM_HOME="$(ruby -e 'puts Gem.user_dir')"
 export PATH="$PATH:$GEM_HOME/bin"
-# scripts
+## scripts
 export PATH=$PATH:~/Applications:/opt/appimages
 export PATH=$PATH:~/.scripts:~/.local/bin
 

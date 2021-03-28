@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 ## common between WM's and DE's
-# [ -f ~/.xprofile ] && . ~/.xprofile
+#[ -f ~/.xprofile ] && . ~/.xprofile
 #[ -f ~/.xsessionrc ] && . ~/.xsessionrc
 
 ## desktop i3
@@ -15,4 +15,13 @@
 #picom -b --experimental-backends --backend glx --blur-method dual_kawase --blur-strength 10 &
 #exec bspwm
 
-exec dwm
+## DWM
+xwallpaper --zoom ~/Pictures/Wallpapers/Daniel-leone-v7-modded.jpg &
+~/.scripts/touchpad-enable.sh &
+#while xsetroot -name "`date` `uptime | sed 's/.*,//'`"
+while xsetroot -name "$(date +"%a - %d/%m - %H:%M")"
+do
+	sleep 1
+done &
+#sxhkd -c ~/.config/sxhkd/sxhkdrc &
+~/.config/suckless/dwm/startdwm.sh
