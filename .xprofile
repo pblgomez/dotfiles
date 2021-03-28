@@ -50,7 +50,7 @@ autorandr-launcher &
 dunst &
 udiskie &
 xbanish &
-~/.local/bin/touchpad-enable.sh &
+~/.scripts/touchpad-enable.sh &
 redshift &
 autorandr -c &
 /usr/lib/kdeconnectd &

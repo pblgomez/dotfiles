@@ -15,4 +15,5 @@
 #picom -b --experimental-backends --backend glx --blur-method dual_kawase --blur-strength 10 &
 #exec bspwm
 
+~/.scripts/touchpad-enable.sh &
 exec dwm
