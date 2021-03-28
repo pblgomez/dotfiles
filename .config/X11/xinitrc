@@ -1,19 +1,29 @@
 #!/usr/bin/env sh
 
 ## common between WM's and DE's
-# [ -f ~/.xprofile ] && . ~/.xprofile
-#[ -f ~/.xsessionrc ] && . ~/.xsessionrc
+[ -f ~/.xprofile ] && . ~/.xprofile
+[ -f ~/.xsessionrc ] && . ~/.xsessionrc
 
 ## desktop i3
 #sxhkd -c "$HOME"/.config/sxhkd/bspwm "$XDG_CONFIG_HOME"/sxhkd/sxhkdrc &
 #"$HOME"/.config/polybar/launch.sh &
 #exec i3
 
-# desktop bspwm
+# BSPWM
 #sxhkd -c $HOME/.config/sxhkd/bspwm $XDG_CONFIG_HOME/sxhkd/sxhkdrc &
 #$HOME/.config/polybar/launch.sh &
 #picom -b --experimental-backends --backend glx --blur-method dual_kawase --blur-strength 10 &
 #exec bspwm
 
+## DWM
+xwallpaper --zoom ~/Pictures/Wallpapers/Daniel-leone-v7-modded.jpg &
 ~/.scripts/touchpad-enable.sh &
-exec dwm
+while xsetroot -name "$(date +"%a - %d/%m - %H:%M")"
+do
+	sleep 1
+done &
+sxhkd -c $HOME/.config/sxhkd/sxhkdrc &
+~/.scripts/touchpad-enable.sh &
+#exec dwm
+~/.config/suckless/dwm/dwm_start.sh
+

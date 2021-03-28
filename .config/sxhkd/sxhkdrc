@@ -21,10 +21,8 @@ super + shift + d
 # Terminal emulator
 super + Return
   $TERMINAL
-super + shift + Return
-  $TERMINAL --class float
 ctrl + alt +t
-	$TERMINAL
+  $TERMINAL
 
 # Xkill
 super + shift + x
