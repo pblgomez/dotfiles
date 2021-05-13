@@ -10,8 +10,8 @@ fi
 notify-send "$(echo $(autorandr --current))"
 #killall picom; picom &
 killall -q picom                                                       
-while pgrep -x picom >/dev/null; do sleep 1; done
-picom -b --experimental-backends --backend glx --blur-method dual_kawase --blur-strength 10 &
+# while pgrep -x picom >/dev/null; do sleep 1; done
+# picom -b --experimental-backends --backend glx --blur-method dual_kawase --blur-strength 10 &
 
 # # wallpaper
 # if [ -f ~/.cache/bg ]; then
@@ -24,4 +24,4 @@ picom -b --experimental-backends --backend glx --blur-method dual_kawase --blur-
 bspc wm -r
 
 # Polybar
-$HOME/.config/polybar/launch.sh &
+# $HOME/.config/polybar/launch.sh &

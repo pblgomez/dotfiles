@@ -1,8 +1,18 @@
 #!/usr/bin/env sh
 
 ## common between WM's and DE's
-[ -f ~/.xprofile ] && . ~/.xprofile
-[ -f ~/.xsessionrc ] && . ~/.xsessionrc
+#[ -f ~/.xprofile ] && . ~/.xprofile
+#[ -f ~/.xsessionrc ] && . ~/.xsessionrc
+
+# Script to enable the touchpad
+#~/.scripts/touchpad-enable.sh &
+
+# Keyboard
+#if [ -f $HOME/.config/pbl.xkb ]; then
+  #xkbcomp $HOME/.config/pbl.xkb $DISPLAY
+#else
+  #setxkbmap us,es altgr-intl, -option grp:rctrl_rshift_toggle
+#fi
 
 ## desktop i3
 #sxhkd -c "$HOME"/.config/sxhkd/bspwm "$XDG_CONFIG_HOME"/sxhkd/sxhkdrc &
@@ -16,14 +26,14 @@
 #exec bspwm
 
 ## DWM
-xwallpaper --zoom ~/Pictures/Wallpapers/Daniel-leone-v7-modded.jpg &
-~/.scripts/touchpad-enable.sh &
-while xsetroot -name "$(date +"%a - %d/%m - %H:%M")"
-do
-	sleep 1
-done &
-sxhkd -c $HOME/.config/sxhkd/sxhkdrc &
-~/.config/suckless/dwm/startdwm.sh
-~/.scripts/touchpad-enable.sh &
-~/.config/suckless/dwm/dwm_start.sh
+#picom &
+#xwallpaper --zoom ~/Pictures/Wallpapers/Daniel-leone-v7-modded.jpg &
 
+# while bar_mods_path="$HOME/.config/dwmbar/modules" xsetroot -name "$(./$bar_mods_path/cpuload)  |  $(./$bar_mods_path/ram)  |  $(./$bar_mods_path/volume)  |  $(./$bar_mods_path/battery)  |  $(date +"%d/%m %H:%M")"
+  # sleep 1
+# done &
+
+#sxhkd -c $HOME/.config/sxhkd/sxhkdrc &
+#dwmbar &
+#while true; do dwm 2> /tmp/dwm.log; done
+dwm
