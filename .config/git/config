@@ -5,3 +5,5 @@
 
 [includeIf "gitdir:$HOME/Documents/Triller/"]
   path = $HOME/.config/git/config.triller
+[core]
+	excludesfile = /home/pbl/.config/git/gitignore
