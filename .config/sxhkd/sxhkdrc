@@ -1,5 +1,7 @@
 # vim: set ft=sxhkdrc:
 
+super + x
+  shutdown_menu.sh
 
 ############################################################
 # Apps
@@ -20,9 +22,9 @@ super + shift + d
 
 # Terminal emulator
 super + Return
-  $TERMINAL
+  alacritty
 ctrl + alt +t
-  $TERMINAL
+  alacritty
 
 # Xkill
 super + shift + x
@@ -54,9 +56,11 @@ ctrl + alt + c
 ctrl + alt + r
   $HOME/.local/bin/screencast.sh
 
-# Screenshot
-ctrl + alt + s
-  scrot -s
+Print
+  scrot ~/Downloads/Screenshot_%y-%m-%d_%H:%M:%S.png
+
+shift + Print
+  scrot -s ~/Downloads/Screenshot_%y-%m-%d_%H:%M:%S.png
 
 # clipmenu
 super + alt + c
@@ -91,6 +95,9 @@ XF86AudioMute
   pactl set-source-mute @DEFAULT_SOURCE@ toggle
 #  pactl set-sink-mute @DEFAULT_SINK@ toggle
 # pamixer -t && dunstify -i "/usr/share/icons/Adwaita/16x16/status/audio-volume-high-symbolic.symbolic.png" -r 2 `pamixer --get-volume-human`
+super + shift + p
+  $TERMINAL -e pulsemixer
+ 
 
 # Mute microphone
 super + alt + v
