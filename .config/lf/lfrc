@@ -1,3 +1,28 @@
+# Basic Settings
+set previewer ~/.config/lf/preview
+set preview true
+
+cmd mkdir ${{
+  printf "Directory Name: "
+  read ans
+  mkdir $ans
+}}
+
+# Basic Functions
+map . set hidden!
+map md mkdir
+
+# Trash
+%mkdir -p ~/.cache/trash
+cmd trash %set -f; mv $fx ~/.cache/trash
+map d
+map dd trash
+
+# Movement
+map gp cd ~/Pictures
+map gtt cd ~/.cache/trash
+map gtr cd ~/Documents/Triller
+
 cmd open ${{
   case $(file --mime-type $f -b) in
 	  image/vnd.djvu|application/pdf|application/octet-stream) setsid -f zathura $fx >/dev/null 2>&1 ;;

@@ -14,6 +14,8 @@ set softtabstop=2
 set shiftwidth=2              " when indenting with '>', use 2 spaces width
 
 set autoread                  " Auto reload when it detects changes on disk
+
+set colorcolumn=80,160           " Mark a margin at the end
 " }}}
 
 " File Find {{{
@@ -59,7 +61,8 @@ call plug#end()
 
 "" LF File Manager
 let g:lf_map_keys = 0
-map <SPACE> :Lf<CR>
+"map <SPACE> :Lf<CR>
+map <SPACE> :Explore<CR>
 
 "" Toggle comments normal and visual modes
 nmap <C-_>   <Plug>NERDCommenterToggle

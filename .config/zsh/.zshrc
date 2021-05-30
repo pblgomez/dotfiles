@@ -1,15 +1,17 @@
 # ENVS
-source ~/.gnupg/triller/triller.envs
+#source ~/.gnupg/triller/triller.envs
 
 # for compatibility reasons
 export TERM=xterm-256color
 
 #XDG Base Directories
+export XDG_DATA_HOME="$HOME/.local/share"
 export CARGO_HOME="$XDG_DATA_HOME"/cargo        # Rust / Cargo
 export VAGRANT_HOME="XDG_CONFIG_HOME/.vagrant.d"
 export XINITRC="$XDG_CONFIG_HOME"/X11/xinitrc
 export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority
 export XINITRC="$XDG_CONFIG_HOME"/X11/xinitrc
+export GOPATH="$XDG_DATA_HOME"/go               # Go
 
 # PATH
 ## for AppImages
@@ -20,6 +22,13 @@ export PATH="$PATH:$GEM_HOME/bin"
 ## scripts
 export PATH=$PATH:~/Applications:/opt/appimages
 export PATH=$PATH:~/.scripts:~/.local/bin
+
+
+# Filetypes
+# $ xdg-mime query filetype photo.jpeg
+# $ xdg-mime query default image/jpeg
+# $ xdg-mime default feh.desktop image/jpeg
+xdg-mime default vscodium.desktop text/plain
 
 # For cache dir
 ZSH_CACHE_DIR="$HOME/.cache/zsh"
@@ -81,71 +90,6 @@ echo $USER@$HOST  $(uname -srm)
 #  - shows exit status of previous command (if previous command finished with an error)
 #  - is invisible, if neither is the case
 
-#   # Modify the colors and symbols in these variables as desired.
-#   GIT_PROMPT_SYMBOL="%{$fg[blue]%}±"                              # plus/minus     - clean repo
-#   GIT_PROMPT_PREFIX="%{$fg[green]%}[%{$reset_color%}"
-#   GIT_PROMPT_SUFFIX="%{$fg[green]%}]%{$reset_color%}"
-#   GIT_PROMPT_AHEAD="%{$fg[red]%}ANUM%{$reset_color%}"             # A"NUM"         - ahead by "NUM" commits
-#   GIT_PROMPT_BEHIND="%{$fg[cyan]%}BNUM%{$reset_color%}"           # B"NUM"         - behind by "NUM" commits
-#   GIT_PROMPT_SUFFIX="%{$fg[green]%}]%{$reset_color%}"
-#   GIT_PROMPT_AHEAD="%{$fg[red]%}ANUM%{$reset_color%}"             # A"NUM"         - ahead by "NUM" commits
-#   GIT_PROMPT_BEHIND="%{$fg[cyan]%}BNUM%{$reset_color%}"           # B"NUM"         - behind by "NUM" commits
-#   GIT_PROMPT_MERGING="%{$fg_bold[magenta]%}⚡︎%{$reset_color%}"     # lightning bolt - merge conflict
-#   GIT_PROMPT_UNTRACKED="%{$fg_bold[red]%}●%{$reset_color%}"       # red circle     - untracked files
-#   GIT_PROMPT_MODIFIED="%{$fg_bold[yellow]%}●%{$reset_color%}"     # yellow circle  - tracked files modified
-#   GIT_PROMPT_STAGED="%{$fg_bold[green]%}●%{$reset_color%}"        # green circle   - staged changes present = ready for "git push"
-#   
-#   parse_git_branch() {
-#     # Show Git branch/tag, or name-rev if on detached head
-#     ( git symbolic-ref -q HEAD || git name-rev --name-only --no-undefined --always HEAD ) 2> /dev/null
-#   }
-#   
-#   parse_git_state() {
-#     # Show different symbols as appropriate for various Git repository states
-#     # Compose this value via multiple conditional appends.
-#     local GIT_STATE=""
-#     local NUM_AHEAD="$(git log --oneline @{u}.. 2> /dev/null | wc -l | tr -d ' ')"
-#     if [ "$NUM_AHEAD" -gt 0 ]; then
-#       GIT_STATE=$GIT_STATE${GIT_PROMPT_AHEAD//NUM/$NUM_AHEAD}
-#     fi
-#     local NUM_BEHIND="$(git log --oneline ..@{u} 2> /dev/null | wc -l | tr -d ' ')"
-#     if [ "$NUM_BEHIND" -gt 0 ]; then
-#       GIT_STATE=$GIT_STATE${GIT_PROMPT_BEHIND//NUM/$NUM_BEHIND}
-#     fi
-#     local GIT_DIR="$(git rev-parse --git-dir 2> /dev/null)"
-#     if [ -n $GIT_DIR ] && test -r $GIT_DIR/MERGE_HEAD; then
-#       GIT_STATE=$GIT_STATE$GIT_PROMPT_MERGING
-#     fi
-#     if [[ -n $(git ls-files --other --exclude-standard 2> /dev/null) ]]; then
-#       GIT_STATE=$GIT_STATE$GIT_PROMPT_UNTRACKED
-#     fi
-#     if ! git diff --quiet 2> /dev/null; then
-#       GIT_STATE=$GIT_STATE$GIT_PROMPT_MODIFIED
-#     fi
-#     if ! git diff --cached --quiet 2> /dev/null; then
-#       GIT_STATE=$GIT_STATE$GIT_PROMPT_STAGED
-#     fi
-#     if [[ -n $GIT_STATE ]]; then
-#       echo "$GIT_PROMPT_PREFIX$GIT_STATE$GIT_PROMPT_SUFFIX"
-#     fi
-#   }
-#   
-#   git_prompt_string() {
-#     local git_where="$(parse_git_branch)"
-#     
-#     # If inside a Git repository, print its branch and state
-#     [ -n "$git_where" ] && echo "$GIT_PROMPT_SYMBOL$(parse_git_state)$GIT_PROMPT_PREFIX%{$fg[yellow]%}${git_where#(refs/heads/|tags/)}$GIT_PROMPT_SUFFIX"
-#     
-#     # If not inside the Git repo, print exit codes of last command (only if it failed)
-#     [ ! -n "$git_where" ] && echo "%{$fg[red]%} %(?..[%?])"
-#   }
-
-# Right prompt with exit status of previous command if not successful
- #RPROMPT="%{$fg[red]%} %(?..[%?])" 
-# Right prompt with exit status of previous command marked with ✓ or ✗
- #RPROMPT="%(?.%{$fg[green]%}✓ %{$reset_color%}.%{$fg[red]%}✗ %{$reset_color%})"
-
-
 # Color man pages
 export LESS_TERMCAP_mb=$'\E[01;32m'
 export LESS_TERMCAP_md=$'\E[01;32m'
@@ -188,9 +132,11 @@ fi
 
 
 # Start graphical server on tty1 if not already running.
-command -v sway >/dev/null && [ "$(tty)" = "/dev/tty1" ] && [ -z $DISPLAY ] && exec sway 
-[ "$(tty)" = "/dev/tty1" ] && ! pgrep -x Xorg >/dev/null && exec startx
-[ "$(tty)" = "/dev/tty2" ] && ! pgrep -x Xorg >/dev/null && exec nvidia-xrun i3
+# For Sway
+#command -v sway >/dev/null && [ "$(tty)" = "/dev/tty1" ] && [ -z $DISPLAY ] && exec sway 
+# Fox X
+[ "$(tty)" = "/dev/tty1" ] && ! pgrep -x Xorg >/dev/null && exec startx $XINITRC
+#[ "$(tty)" = "/dev/tty2" ] && ! pgrep -x Xorg >/dev/null && exec nvidia-xrun i3
 #[ "$(tty)" = "/dev/tty1" ] && ! pgrep -x Xorg >/dev/null && exec startx
 
 # zsh pure theme
@@ -201,3 +147,15 @@ prompt pure
 # kubie prompt ( depends on kube-ps1 package )
 source /opt/kube-ps1/kube-ps1.sh
 PROMPT='$(kube_ps1)'$PROMPT
+
+
+# AWS prompt
+#source '"$ZDOTDIR"/shell-aws-autoprofile/shell-aws-autoprofile.sh'
+function aws_prompt_info() {
+  [[ -z $AWS_PROFILE ]] && return
+  echo "${ZSH_THEME_AWS_PREFIX:=<AWS:}${AWS_PROFILE}${ZSH_THEME_AWS_SUFFIX:=>}"
+}
+
+if [[ "$SHOW_AWS_PROMPT" != false && "$PROMPT" != *'$(aws_prompt_info)'* ]]; then
+  PROMPT='$(aws_prompt_info)'"$PROMPT"
+fi
