@@ -23,8 +23,10 @@ alias gp='git push'
 alias gsb='git status -sb'
 alias gss='git status -s'
 alias gst='git status'
+alias gitlog="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 alias gitdefault='git remote show origin | grep "HEAD branch" | cut -d ":" -f 2 | xargs git checkout'
-alias clone='git clone'
+alias gitcleanup='git branch | grep -v '^*' | xargs git branch -D -'
+alias gcl='git clone'
 alias gitwhatever='git add . && git commit -m "$(curl http://whatthecommit.com/index.txt)" && git push'
 alias gitmergewhatever='git merge -m "$(curl http://whatthecommit.com/index.txt)" && git push'
 alias yadmwhatever='yadm commit -m "$(curl http://whatthecommit.com/index.txt)" && yadm push'
@@ -53,6 +55,7 @@ alias k="kubectl"
 function tf {
   if ! hash terraform; then terraform-snap.terraform $@; else; terraform $@; fi
 }
-alias tfinit="cat README.md -p | grep 'terraform init' | awk -F '\`' '{print \$2}' | bash"
-alias tfplandev='terraform plan -var-file=develop.tfvars -var-file=encrypted_develop.tfvars'
+alias tfinit="/usr/bin/cat README.md | grep 'terraform init' | awk -F '\`' '{print \$2}' | bash"
+alias tfplandev="/usr/bin/cat README.md | grep 'terraform plan' | awk -F '\`' '{print \$2}' | bash"
+alias tfplandev2='terraform plan -var-file=develop.tfvars -var-file=encrypted_develop.tfvars'
 
